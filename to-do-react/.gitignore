@@ -6,7 +6,7 @@
 .pnp.js
 /.storybook
 /src/stories
-.mpmrc
+.npmrc
 package-lock.json
 
 # testing

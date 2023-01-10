@@ -23,7 +23,7 @@ export default function Nav() {
       <nav>
         <ul className="nav-list">
           <NavLi>
-            <Link to="/write">test1</Link>
+            <Link to="/add">write</Link>
           </NavLi>
         </ul>
       </nav>

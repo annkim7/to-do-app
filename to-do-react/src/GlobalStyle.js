@@ -21,6 +21,7 @@ const GlobalStyle = createGlobalStyle`
   time, mark, audio, video {
     margin: 0;
     padding: 0;
+    display:block;
     border: 0;
     font-size: 100%;
     font: inherit;

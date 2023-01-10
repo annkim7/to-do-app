@@ -1,10 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function WholeList() {
+import Item from "../components/Item";
+
+export default function List() {
   return (
     <article>
-      <div>test</div>
+      <Item></Item>
     </article>
   );
 }
