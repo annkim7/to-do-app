@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const Alarm = styled.section`
-  padding: 1.875rem;
-  background: #1bb785;
+  padding: ${({ theme }) => theme.pd25};
+  background: ${({ theme }) => theme.mainGreen};
 
   h2 {
     font-size: 2.063rem;
@@ -15,7 +15,7 @@ const Alarm = styled.section`
 `;
 
 const LightBlueButton = styled.button`
-  background: pink;
+  background: ${({ theme }) => theme.mainSky};
 `;
 
 export default function Notice() {

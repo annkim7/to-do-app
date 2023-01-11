@@ -4,18 +4,13 @@ import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
 
 const Header = styled.header`
-  display: flex;
-  padding: 1.563rem;
-  align-items: center;
-  justify-content: space-between;
+  ${({ theme }) => theme.flexBox("row", "center", "space-between")}
+  padding: ${({ theme }) => theme.pd25};
 `;
 
 const Logo = styled.h1`
   a {
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
+    ${({ theme }) => theme.flexBox()}
   }
   svg {
     width: 1.348rem;

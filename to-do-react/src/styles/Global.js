@@ -44,7 +44,8 @@ const GlobalStyle = createGlobalStyle`
     }
 
     article{
-        padding:0 1.563rem 1.563rem 1.563rem;
+        padding:${({ theme }) => theme.pd25};
+        padding-top:0;
     }
 `;
 
