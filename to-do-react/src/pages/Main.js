@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import Notice from "../components/Notice";
 import Item from "../components/Item";
 

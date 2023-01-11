@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 
 export default function Item() {
   return (
@@ -8,7 +7,7 @@ export default function Item() {
       <h4 className="title">몬스테라 물주기</h4>
       <em className="time">14:00 ~ 15:00</em>
       <input type="checkbox" title="완료 체크" id="checkDone"></input>
-      <label HtmlFor="checkDone">체크</label>
+      <label htmlFor="checkDone">체크</label>
     </li>
   );
 }

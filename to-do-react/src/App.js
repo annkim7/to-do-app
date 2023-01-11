@@ -1,8 +1,7 @@
 import React from "react";
 
 // style
-import GlobalStyle from "./GlobalStyle";
-import styled from "styled-components";
+import GlobalStyle from "./styles/Global";
 // routing
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Nav from "./components/Nav";

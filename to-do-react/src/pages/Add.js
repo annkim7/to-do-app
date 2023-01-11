@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 
 export default function Add() {
   return (
@@ -14,7 +13,7 @@ export default function Add() {
       </ul>
       <h3>완료</h3>
       <input type="checkbox" title="완료 체크" id="checkDone"></input>
-      <label HtmlFor="checkDone">체크</label>
+      <label htmlFor="checkDone">체크</label>
       <button>추가</button>
       <button>수정</button>
       <button>삭제</button>
