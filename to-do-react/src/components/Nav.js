@@ -15,7 +15,7 @@ const Logo = styled.h1`
   svg {
     width: 1.348rem;
     height: 1.563rem;
-    color: #0db17d;
+    color: ${({ theme }) => theme.mainGreen};
   }
   strong {
     margin-left: 0.778rem;

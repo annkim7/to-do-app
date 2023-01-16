@@ -12,6 +12,9 @@ const GlobalStyle = createGlobalStyle`
     a{
         text-decoration: none;
         color: inherit;
+        font-size:inherit;
+        font-weight:inherit;
+        letter-spacing:inherit;
     }
 
     input, textarea { 
@@ -46,6 +49,13 @@ const GlobalStyle = createGlobalStyle`
     article{
         padding:${({ theme }) => theme.pd25};
         padding-top:0;
+    }
+
+    .mainTitle{
+        margin-bottom:1.438rem;
+        font-size:1rem;
+        font-weight:600;
+        letter-spacing: -0.001em;
     }
 `;
 

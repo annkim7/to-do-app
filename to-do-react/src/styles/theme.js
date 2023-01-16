@@ -1,7 +1,6 @@
 export const theme = {
   /*color*/
-  logoGreen: "#0DB17D",
-  mainGreen: "#1BB785",
+  mainGreen: "#0db17d",
   mainRed: "#E75A46",
   mainBlack: "#121212",
   mainSky: "#C0FBE8",
@@ -14,6 +13,7 @@ export const theme = {
 
   /*padding*/
   pd25: "1.563rem;",
+  pd20: "1.25rem",
 };
 
 export const mixins = {
