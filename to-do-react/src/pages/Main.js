@@ -6,7 +6,7 @@ export default function Main() {
   return (
     <article>
       <Notice />
-      <h3>할일 목록</h3>
+      <h3 className="mainTitle">할일 목록</h3>
       <ul>
         <Item></Item>
       </ul>
