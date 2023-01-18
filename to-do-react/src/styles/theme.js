@@ -8,9 +8,10 @@ export const theme = {
   cateBlue: "#AED8D7",
   cateOrange: "#F5B68C",
   borderGreen: "#0DB17D",
+  timeGray: "#ADADAD",
   unableGray: "#DEDEDE",
   editGray: "#7C7B7B",
-
+  checkGreen: "#1BB785",
   /*padding*/
   pd25: "1.563rem;",
   pd20: "1.25rem",

@@ -4,14 +4,14 @@ import { Icon } from "@iconify/react";
 
 const ItemLi = styled.li`
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  input {
-    display: none;
-  }
+  grid: "a b d" "a c d";
+  grid-template-columns: 3.625rem auto 1rem;
+  max-height: 3.625rem;
 `;
 
 const Category = styled.span`
   ${({ theme }) => theme.flexBox("row", "center", "center")}
+  grid-area: a;
   width: 3.625rem;
   height: 3.625rem;
   border-radius: 50%;
@@ -20,16 +20,47 @@ const Category = styled.span`
   color: #fff;
 `;
 
+const ListTitle = styled.h4`
+  padding: 0.8rem 0.6rem 0 0.6rem;
+`;
+
+const Time = styled.span`
+  padding: 0 0.6rem 0.5rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: ${({ theme }) => theme.timeGray};
+`;
+
+const Check = styled.div`
+  position: relative;
+  grid-area: d;
+  color: ${({ theme }) => theme.checkGreen};
+  cursor: pointer;
+  input {
+    diplay: block;
+  }
+  label {
+    height: 100%;
+  }
+  input:checked + label {
+    ${({ theme }) => theme.flexBox("row", "center", "center")}
+  }
+`;
+
 export default function Item() {
   return (
     <ItemLi>
       <Category symbol="water">
         <Icon icon="material-symbols:water-drop" />
       </Category>
-      <h4 className="title">몬스테라 물주기</h4>
-      <em className="time">14:00 ~ 15:00</em>
-      <input type="checkbox" title="완료 체크" id="checkDone"></input>
-      <label htmlFor="checkDone">체크</label>
+      <ListTitle>몬스테라 물주기</ListTitle>
+      <Time>14:00 ~ 15:00</Time>
+      <Check>
+        <input type="checkbox" title="완료 체크" id="checkDone"></input>
+        <label htmlFor="checkDone">
+          <Icon icon="material-symbols:done"></Icon>
+        </label>
+      </Check>
     </ItemLi>
   );
 }
