@@ -32,18 +32,23 @@ const Time = styled.span`
 `;
 
 const Check = styled.div`
-  position: relative;
+  ${({ theme }) => theme.flexBox("row", "center", "center")}
   grid-area: d;
   color: ${({ theme }) => theme.checkGreen};
-  cursor: pointer;
   input {
-    diplay: block;
+    display: none;
   }
   label {
     height: 100%;
+    cursor: pointer;
   }
-  input:checked + label {
-    ${({ theme }) => theme.flexBox("row", "center", "center")}
+  input + label svg {
+    width: 1rem;
+    height: 100%;
+    opacity: 0;
+  }
+  input:checked + label svg {
+    opacity: 1;
   }
 `;
 
