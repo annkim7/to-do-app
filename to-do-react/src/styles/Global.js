@@ -23,6 +23,7 @@ const GlobalStyle = createGlobalStyle`
         -webkit-user-select: auto;
         -ms-user-select: auto;
         user-select: auto;
+        margin:0;
     }
     input:focus {
         outline: none;
@@ -65,6 +66,12 @@ const GlobalStyle = createGlobalStyle`
 
     h3{
         font-size:1rem;
+        font-weight:600;
+        letter-spacing: -0.001em;
+    }
+
+    h4{
+        font-size: 0.813rem;
         font-weight:600;
         letter-spacing: -0.001em;
     }
