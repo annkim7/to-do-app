@@ -24,4 +24,10 @@ export const mixins = {
     align-items: ${align};
     justify-content: ${justify};
   `,
+  positionCenter: () => `
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  `,
 };
