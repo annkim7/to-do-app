@@ -15,6 +15,9 @@ export const theme = {
   /*padding*/
   pd25: "1.563rem;",
   pd20: "1.25rem",
+  /*box-shadow*/
+  borderShadow:
+    "0px 0px 0px 1px rgba(27, 31, 35, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.02)",
 };
 
 export const mixins = {
