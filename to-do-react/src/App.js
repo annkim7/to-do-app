@@ -23,6 +23,7 @@ export default function App() {
             <Route path="/" element={<Main />} />
             <Route path="/list" element={<List />} />
             <Route path="/add" element={<Add />} />
+            <Route path="/edit" element={<Add />} />
           </Routes>
         </main>
       </Router>

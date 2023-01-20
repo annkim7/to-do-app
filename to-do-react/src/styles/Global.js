@@ -18,12 +18,15 @@ const GlobalStyle = createGlobalStyle`
         letter-spacing:inherit;
     }
 
-    input, textarea { 
+    input, textarea {
+        width:100%;
+        margin:0;
+        padding:0;
+        border:0;
         -moz-user-select: auto;
         -webkit-user-select: auto;
         -ms-user-select: auto;
         user-select: auto;
-        margin:0;
     }
     input:focus {
         outline: none;
