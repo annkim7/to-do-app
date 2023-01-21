@@ -11,18 +11,21 @@ export const ItemLi = styled.li`
 
 export const Category = styled.span`
   ${({ theme }) => theme.flexBox("row", "center", "center")}
-  grid-area: a;
   width: 3.625rem;
   height: 3.625rem;
+  margin: 0 auto;
   border-radius: 50%;
   background: ${(props) => props.symbol};
   font-size: 1.85rem;
   color: #fff;
 `;
 
+export const CategoryLi = styled(Category)`
+  grid-area: a;
+`;
+
 export const WriteArea = styled.input`
   height: 1.625rem;
-  margin-top: 1rem;
   border-radius: 0.313rem;
   box-shadow: ${({ theme }) => theme.borderShadow};
 `;

@@ -34,11 +34,11 @@ const NavLi = styled.li`
   }
 `;
 
-export default function Nav() {
+export default function Nav({ pageHandler }) {
   return (
     <Header>
       <Logo>
-        <Link to="/">
+        <Link to="/" onClick={() => pageHandler("main")}>
           <Icon icon="material-symbols:home" />
           <strong>To Do</strong>
         </Link>
@@ -46,7 +46,7 @@ export default function Nav() {
       <nav>
         <ul className="nav-list">
           <NavLi>
-            <Link to="/add">
+            <Link to="/add" onClick={() => pageHandler("add")}>
               <Icon icon="jam:write" />
             </Link>
           </NavLi>
