@@ -12,6 +12,7 @@ export const theme = {
   unableGray: "#DEDEDE",
   editGray: "#7C7B7B",
   checkGreen: "#1BB785",
+  uncheckGray: "#D9D9D9",
   /*padding*/
   pd25: "1.563rem;",
   pd20: "1.25rem",

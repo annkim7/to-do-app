@@ -50,8 +50,8 @@ const GlobalStyle = createGlobalStyle`
     }
 
     #root{
-        width: 400px;
-        height:800px;
+        width: 18.3rem;
+        height:31.5rem;
         margin: 0 auto;
         border:1px solid #ddd;
         border-radius: 1rem;

@@ -21,10 +21,23 @@ export const Check = styled.div`
   }
 `;
 
+export const FormCheck = styled(Check)`
+  grid-area: auto;
+  input + label svg {
+    width: 2.28rem;
+    color: ${({ theme }) => theme.uncheckGray};
+    opacity: 1;
+  }
+  input:checked + label svg {
+    color: ${({ theme }) => theme.checkGreen};
+  }
+`;
+
 export const ButtonBox = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
+  display: grid;
+  margin-top: 1.2rem;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 0 0.55rem;
 `;
 
 export const LightBlueButton = styled.button`
@@ -39,7 +52,8 @@ export const LightBlueButton = styled.button`
 `;
 
 export const BigGreenButton = styled.button`
-  width: 100%;
+  display: inherit;
+  grid-column-end: span 2;
   padding: 0.6rem;
   color: #fff;
   font-size: 1.15rem;
@@ -50,5 +64,5 @@ export const BigGreenButton = styled.button`
 `;
 
 export const SmallButton = styled(BigGreenButton)`
-  width: calc(50% - 0.2rem);
+  grid-column-end: span 1;
 `;
