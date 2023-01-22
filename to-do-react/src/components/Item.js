@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 
 import styled from "styled-components";
 import { Icon } from "@iconify/react";
-import { CategoryLi, ItemLi } from "../styles/Custom";
-import { Check } from "../styles/Button";
+import { CategoryLi, ItemLi, Check } from "../styles/Custom";
 
 const ListTitle = styled.h4`
   padding: 0.8rem 0.6rem 0 0.6rem;

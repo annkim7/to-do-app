@@ -1,41 +1,9 @@
 import styled from "styled-components";
 
-export const Check = styled.div`
-  ${({ theme }) => theme.flexBox("row", "center", "center")}
-  grid-area: d;
-  color: ${({ theme }) => theme.checkGreen};
-  input {
-    display: none;
-  }
-  label {
-    height: 100%;
-    cursor: pointer;
-  }
-  input + label svg {
-    width: 1rem;
-    height: 100%;
-    opacity: 0;
-  }
-  input:checked + label svg {
-    opacity: 1;
-  }
-`;
-
-export const FormCheck = styled(Check)`
-  grid-area: auto;
-  input + label svg {
-    width: 2.28rem;
-    color: ${({ theme }) => theme.uncheckGray};
-    opacity: 1;
-  }
-  input:checked + label svg {
-    color: ${({ theme }) => theme.checkGreen};
-  }
-`;
-
 export const ButtonBox = styled.div`
   display: grid;
-  margin-top: 1.2rem;
+  width: 100%;
+  margin-top: 1.65rem;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 0 0.55rem;
 `;
@@ -65,4 +33,10 @@ export const BigGreenButton = styled.button`
 
 export const SmallButton = styled(BigGreenButton)`
   grid-column-end: span 1;
+`;
+
+export const ModalButton = styled(BigGreenButton)`
+  grid-column-end: span 1;
+  font-size: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(3rem, 1fr));
 `;

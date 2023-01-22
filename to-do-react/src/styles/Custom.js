@@ -5,7 +5,6 @@ export const ItemLi = styled.li`
     display: grid;
     grid: "a b d" "a c d";
     grid-template-columns: 3.625rem auto 1rem;
-    max-height: 3.625rem;
   }
 `;
 
@@ -22,6 +21,39 @@ export const Category = styled.span`
 
 export const CategoryLi = styled(Category)`
   grid-area: a;
+`;
+
+export const Check = styled.div`
+  ${({ theme }) => theme.flexBox("row", "center", "center")}
+  grid-area: d;
+  color: ${({ theme }) => theme.checkGreen};
+  input {
+    display: none;
+  }
+  label {
+    height: 100%;
+    cursor: pointer;
+  }
+  input + label svg {
+    width: 1rem;
+    height: 100%;
+    opacity: 0;
+  }
+  input:checked + label svg {
+    opacity: 1;
+  }
+`;
+
+export const FormCheck = styled(Check)`
+  grid-area: auto;
+  input + label svg {
+    width: 2.28rem;
+    color: ${({ theme }) => theme.uncheckGray};
+    opacity: 1;
+  }
+  input:checked + label svg {
+    color: ${({ theme }) => theme.checkGreen};
+  }
 `;
 
 export const WriteArea = styled.input`
