@@ -30,6 +30,9 @@ const handleColorType = (symbol) => {
 };
 
 export const Category = styled.span`
+  ${ItemLi} > a & {
+    grid-area: a;
+  }
   ${({ theme }) => theme.flexBox("row", "center", "center")}
   width: 3.625rem;
   height: 3.625rem;
@@ -40,13 +43,11 @@ export const Category = styled.span`
   color: #fff;
 `;
 
-export const CategoryLi = styled(Category)`
-  grid-area: a;
-`;
-
 export const Check = styled.div`
+  ${ItemLi} > a & {
+    grid-area: d;
+  }
   ${({ theme }) => theme.flexBox("row", "center", "center")}
-  grid-area: d;
   color: ${({ theme }) => theme.checkGreen};
   input {
     display: none;
@@ -66,7 +67,6 @@ export const Check = styled.div`
 `;
 
 export const FormCheck = styled(Check)`
-  grid-area: auto;
   input + label svg {
     width: 2.28rem;
     color: ${({ theme }) => theme.uncheckGray};
