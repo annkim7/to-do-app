@@ -20,7 +20,7 @@ export default function Item() {
   return (
     <ItemLi>
       <Link to="/edit">
-        <CategoryLi symbol={({ theme }) => theme.cateBlue}>
+        <CategoryLi symbol="water">
           <Icon icon="material-symbols:water-drop" />
         </CategoryLi>
         <ListTitle>몬스테라 물주기</ListTitle>

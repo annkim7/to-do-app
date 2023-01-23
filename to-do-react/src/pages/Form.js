@@ -45,13 +45,13 @@ export default function Form({ page }) {
       <WriteArea type="text" title="시간 쓰기"></WriteArea>
       <h3>분류</h3>
       <ThreeColumns>
-        <Category symbol={({ theme }) => theme.cateBlue}>
+        <Category symbol="water">
           <Icon icon="material-symbols:water-drop" />
         </Category>
-        <Category symbol={({ theme }) => theme.cateGreen}>
+        <Category symbol="leaf">
           <Icon icon="fluent:leaf-two-20-filled" />
         </Category>
-        <Category symbol={({ theme }) => theme.cateOrange}>
+        <Category symbol="pot">
           <Icon icon="material-symbols:potted-plant-outline" />
         </Category>
       </ThreeColumns>
