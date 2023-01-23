@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 
 import styled from "styled-components";
 import { Icon } from "@iconify/react";
-import { Category, ItemLi, Check } from "../styles/Custom";
+import { ItemLi, Check } from "../styles/Custom";
+import Category from "./Category";
 
 const ListTitle = styled.h4`
   padding: 0.8rem 0.6rem 0 0.6rem;
@@ -20,9 +21,7 @@ export default function Item() {
   return (
     <ItemLi>
       <Link to="/edit">
-        <Category symbol="water">
-          <Icon icon="material-symbols:water-drop" />
-        </Category>
+        <Category symbol="water"></Category>
         <ListTitle>몬스테라 물주기</ListTitle>
         <Time>14:00 ~ 15:00</Time>
         <Check>
