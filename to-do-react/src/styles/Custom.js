@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const ItemLi = styled.li`
   > a {
@@ -8,13 +8,34 @@ export const ItemLi = styled.li`
   }
 `;
 
+const handleColorType = (symbol) => {
+  switch (symbol) {
+    case "water":
+      return css`
+        ${({ theme }) => theme.cateBlue};
+      `;
+    case "leaf":
+      return css`
+        ${({ theme }) => theme.cateGreen};
+      `;
+    case "pot":
+      return css`
+        ${({ theme }) => theme.cateOrange};
+      `;
+    default:
+      return css`
+        ${({ theme }) => theme.unableGray};
+      `;
+  }
+};
+
 export const Category = styled.span`
   ${({ theme }) => theme.flexBox("row", "center", "center")}
   width: 3.625rem;
   height: 3.625rem;
   margin: 0 auto;
   border-radius: 50%;
-  background: ${(props) => props.symbol};
+  background: ${({ symbol }) => handleColorType(symbol)};
   font-size: 1.85rem;
   color: #fff;
 `;
