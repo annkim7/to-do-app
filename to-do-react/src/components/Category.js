@@ -1,7 +1,7 @@
 import React from "react";
 import { Icon } from "@iconify/react";
 import styled, { css } from "styled-components";
-import { ItemLi } from "../styles/Custom";
+import { ItemLi } from "../styles/Layout";
 
 const handleColorType = (symbol) => {
   switch (symbol) {

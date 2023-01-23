@@ -1,7 +1,8 @@
 import React from "react";
 
 import styled from "styled-components";
-import { ButtonBox, ModalButton } from "../styles/Button";
+import { ButtonBox } from "../styles/Layout";
+import Button from "../components/Button";
 
 const ModalBox = styled.section`
   ${({ theme }) => theme.positionCenter()}
@@ -26,39 +27,25 @@ const ModalCon = styled.div`
   line-height: 1.35;
   text-align: center;
   font-weight: 400;
+  white-space: pre-wrap;
 `;
 
 export default function Modal({ modalHandler, alert, alertHander }) {
   return (
     <ModalBox>
       <ModalBg onClick={modalHandler}>
-        {alert ? (
-          <ModalCon onClick={(event) => event.stopPropagation()}>
-            <span>할 일이 등록되었습니다!</span>
-          </ModalCon>
-        ) : (
-          <ModalCon onClick={(event) => event.stopPropagation()}>
-            <span>
-              등록된 할 일이 삭제됩니다.
-              <br />
-              진행하시겠습니까?
-            </span>
-            <ButtonBox>
-              <ModalButton
-                colorType={({ theme }) => theme.mainRed}
-                onClick={alertHander}
-              >
-                삭제
-              </ModalButton>
-              <ModalButton
-                colorType={({ theme }) => theme.checkGreen}
-                onClick={modalHandler}
-              >
-                취소
-              </ModalButton>
-            </ButtonBox>
-          </ModalCon>
-        )}
+        <ModalCon onClick={(event) => event.stopPropagation()}>
+          <span>
+            {alert
+              ? `할 일이 등록되었습니다!`
+              : `등록된 할 일이 삭제됩니다.\n진행하시겠습니까?`}
+          </span>
+
+          <ButtonBox>
+            <Button color="red" size="sm" modal="true" text={"삭제"} />
+            <Button size="sm" modal="true" text={"취소"} />
+          </ButtonBox>
+        </ModalCon>
       </ModalBg>
     </ModalBox>
   );
