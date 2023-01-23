@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 
 import styled from "styled-components";
 import { Icon } from "@iconify/react";
-import { ThreeColumns } from "../styles/Layout";
+import { ThreeColumns, ButtonBox } from "../styles/Layout";
 import { FormCheck, WriteArea } from "../styles/Custom";
-import { ButtonBox, BigGreenButton, SmallButton } from "../styles/Button";
 import Category from "../components/Category";
+import Button from "../components/Button";
 
 import Modal from "../components/Modal";
 
@@ -46,9 +46,9 @@ export default function Form({ page }) {
       <WriteArea type="text" title="시간 쓰기"></WriteArea>
       <h3>분류</h3>
       <ThreeColumns>
-        <Category symbol="water"></Category>
-        <Category symbol="leaf"></Category>
-        <Category symbol="pot"></Category>
+        <Category symbol="water" />
+        <Category symbol="leaf" />
+        <Category symbol="pot" />
       </ThreeColumns>
       <h3>완료</h3>
       <ThreeColumns>
@@ -60,28 +60,21 @@ export default function Form({ page }) {
         </FormCheck>
       </ThreeColumns>
 
-      {page === "add" ? (
-        <ButtonBox>
-          <BigGreenButton
-            colorType={({ theme }) => theme.checkGreen}
-            onClick={alertHander}
-          >
-            추가
-          </BigGreenButton>
-        </ButtonBox>
-      ) : (
-        <ButtonBox>
-          <SmallButton colorType={({ theme }) => theme.checkGreen}>
-            수정
-          </SmallButton>
-          <SmallButton
-            colorType={({ theme }) => theme.mainRed}
-            onClick={modalHandler}
-          >
-            삭제
-          </SmallButton>
-        </ButtonBox>
-      )}
+      <ButtonBox>
+        {page === "add" ? (
+          <Button text={"추가"} />
+        ) : (
+          <>
+            <Button size="sm" text={"수정"} />
+            <Button
+              color="red"
+              size="sm"
+              text={"삭제"}
+              modalHandler={modalHandler}
+            />
+          </>
+        )}
+      </ButtonBox>
 
       {modal ? (
         <Modal
