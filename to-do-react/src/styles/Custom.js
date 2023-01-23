@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const ItemLi = styled.li`
   > a {
@@ -6,41 +6,6 @@ export const ItemLi = styled.li`
     grid: "a b d" "a c d";
     grid-template-columns: 3.625rem auto 1rem;
   }
-`;
-
-const handleColorType = (symbol) => {
-  switch (symbol) {
-    case "water":
-      return css`
-        ${({ theme }) => theme.cateBlue};
-      `;
-    case "leaf":
-      return css`
-        ${({ theme }) => theme.cateGreen};
-      `;
-    case "pot":
-      return css`
-        ${({ theme }) => theme.cateOrange};
-      `;
-    default:
-      return css`
-        ${({ theme }) => theme.unableGray};
-      `;
-  }
-};
-
-export const Category = styled.span`
-  ${ItemLi} > a & {
-    grid-area: a;
-  }
-  ${({ theme }) => theme.flexBox("row", "center", "center")}
-  width: 3.625rem;
-  height: 3.625rem;
-  margin: 0 auto;
-  border-radius: 50%;
-  background: ${({ symbol }) => handleColorType(symbol)};
-  font-size: 1.85rem;
-  color: #fff;
 `;
 
 export const Check = styled.div`

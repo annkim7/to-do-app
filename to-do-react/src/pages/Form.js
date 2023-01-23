@@ -3,8 +3,9 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Icon } from "@iconify/react";
 import { ThreeColumns } from "../styles/Layout";
-import { Category, FormCheck, WriteArea } from "../styles/Custom";
+import { FormCheck, WriteArea } from "../styles/Custom";
 import { ButtonBox, BigGreenButton, SmallButton } from "../styles/Button";
+import Category from "../components/Category";
 
 import Modal from "../components/Modal";
 
@@ -45,15 +46,9 @@ export default function Form({ page }) {
       <WriteArea type="text" title="시간 쓰기"></WriteArea>
       <h3>분류</h3>
       <ThreeColumns>
-        <Category symbol="water">
-          <Icon icon="material-symbols:water-drop" />
-        </Category>
-        <Category symbol="leaf">
-          <Icon icon="fluent:leaf-two-20-filled" />
-        </Category>
-        <Category symbol="pot">
-          <Icon icon="material-symbols:potted-plant-outline" />
-        </Category>
+        <Category symbol="water"></Category>
+        <Category symbol="leaf"></Category>
+        <Category symbol="pot"></Category>
       </ThreeColumns>
       <h3>완료</h3>
       <ThreeColumns>
