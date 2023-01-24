@@ -19,7 +19,7 @@ const FormArea = styled.article`
   }
 `;
 
-export default function Form({ page, data, setData }) {
+export default function Form({ page, data, setData, idx }) {
   const [modal, setModal] = useState(false);
   const [alert, setAlert] = useState(false);
   const navigate = useNavigate();
@@ -36,11 +36,6 @@ export default function Form({ page, data, setData }) {
   const alertHandler = () => {
     setAlert(!alert);
     setModal(!modal);
-  };
-
-  const checkHander = () => {
-    setAlert(!alert);
-    periodHandler(2000);
   };
 
   const periodHandler = (time) => {
@@ -68,6 +63,13 @@ export default function Form({ page, data, setData }) {
     setData([...data, { id: data.length, category, title, time, done: false }]);
 
     setModal(!modal);
+    periodHandler(2000);
+  };
+
+  const removeList = (idx) => {
+    setData(data.filter((el) => el.id !== idx));
+
+    setAlert(!alert);
     periodHandler(2000);
   };
 
@@ -123,7 +125,8 @@ export default function Form({ page, data, setData }) {
         <Modal
           alert={alert}
           modalHandler={modalHandler}
-          checkHander={checkHander}
+          removeList={removeList}
+          idx={idx}
         ></Modal>
       ) : null}
     </FormArea>

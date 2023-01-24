@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Item from "../components/Item";
 import { ListRows } from "../styles/Layout";
 
-export default function List({ data }) {
+export default function List({ data, idHandler }) {
   const [order, setOrder] = useState([]);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ export default function List({ data }) {
     <article>
       <ListRows>
         {order.map((item, idx) => (
-          <Item key={idx} item={item} />
+          <Item key={idx} item={item} onClick={() => idHandler(item.id)} />
         ))}
       </ListRows>
     </article>

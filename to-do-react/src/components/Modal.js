@@ -30,7 +30,7 @@ const ModalCon = styled.div`
   white-space: pre-wrap;
 `;
 
-export default function Modal({ modalHandler, alert, checkHander }) {
+export default function Modal({ modalHandler, alert, removeList, idx }) {
   return (
     <ModalBox>
       <ModalBg onClick={modalHandler}>
@@ -48,7 +48,7 @@ export default function Modal({ modalHandler, alert, checkHander }) {
                 size="sm"
                 modal="true"
                 text="삭제"
-                onClick={checkHander}
+                onClick={() => removeList(idx)}
               />
               <Button
                 size="sm"

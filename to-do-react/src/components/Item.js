@@ -18,7 +18,7 @@ const Time = styled.span`
   color: ${({ theme }) => theme.timeGray};
 `;
 
-export default function Item({ item }) {
+export default function Item({ item, ...rest }) {
   const [done, setDone] = useState(false);
 
   const doneHander = (e) => {
@@ -26,7 +26,7 @@ export default function Item({ item }) {
   };
 
   return (
-    <ItemLi key={item.id}>
+    <ItemLi key={item.id} {...rest}>
       <Link to="/edit">
         <Category symbol={item.category} />
         <ListTitle>{item.title}</ListTitle>
