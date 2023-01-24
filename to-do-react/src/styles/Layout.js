@@ -5,6 +5,11 @@ export const ThreeColumns = styled.div`
   grid-template-columns: repeat(3, 1fr);
 `;
 
+export const ListRows = styled.ul`
+  display: grid;
+  row-gap: 0.6rem;
+`;
+
 export const ItemLi = styled.li`
   > a {
     display: grid;
