@@ -17,9 +17,14 @@ import Data from "./data/Data";
 export default function App() {
   const [page, setPage] = useState("main");
   const [data, setData] = useState(Data);
+  const [idx, setIdx] = useState("");
 
   const pageHandler = (page) => {
     setPage(page);
+  };
+
+  const idHandler = (idx) => {
+    setIdx(idx);
   };
 
   return (
@@ -30,14 +35,19 @@ export default function App() {
         <main>
           <Routes>
             <Route path="/" element={<Main data={data} />} />
-            <Route path="/list" element={<List data={data} />} />
+            <Route
+              path="/list"
+              element={<List data={data} idHandler={idHandler} />}
+            />
             <Route
               path="/add"
               element={<Form page={page} data={data} setData={setData} />}
             />
             <Route
               path="/edit"
-              element={<Form page={page} data={data} setData={setData} />}
+              element={
+                <Form page={page} data={data} setData={setData} idx={idx} />
+              }
             />
           </Routes>
         </main>
