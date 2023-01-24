@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import styled from "styled-components";
 import { Icon } from "@iconify/react";
 import { ThreeColumns, ButtonBox } from "../styles/Layout";
 import { FormCheck, WriteArea } from "../styles/Custom";
+
 import Category from "../components/Category";
 import Button from "../components/Button";
-
 import Modal from "../components/Modal";
 
 const FormArea = styled.article`
@@ -21,22 +22,33 @@ const FormArea = styled.article`
 export default function Form({ page }) {
   const [modal, setModal] = useState(false);
   const [alert, setAlert] = useState(false);
+  const navigate = useNavigate();
 
   const modalHandler = () => {
     setModal(!modal);
+    timeHandler(2000);
   };
 
-  const alertHander = () => {
+  const alertHandler = () => {
+    setAlert(!alert);
     setModal(!modal);
-    setAlert(true);
+  };
+
+  const checkHander = () => {
+    setAlert(!alert);
+    timeHandler(2000);
+  };
+
+  const timeHandler = (time) => {
+    setTimeout(() => {
+      navigate(`/`);
+    }, time);
   };
 
   useEffect(() => {
-    setTimeout(() => {
-      setAlert(false);
-      setModal(false);
-    }, 2000);
-  }, [alert]);
+    setAlert(false);
+    setModal(false);
+  }, []);
 
   return (
     <FormArea>
@@ -62,25 +74,20 @@ export default function Form({ page }) {
 
       <ButtonBox>
         {page === "add" ? (
-          <Button text={"추가"} />
+          <Button text="추가" onClick={modalHandler} />
         ) : (
           <>
-            <Button size="sm" text={"수정"} />
-            <Button
-              color="red"
-              size="sm"
-              text={"삭제"}
-              modalHandler={modalHandler}
-            />
+            <Button size="sm" text="수정" onClick={modalHandler} />
+            <Button color="red" size="sm" text="삭제" onClick={alertHandler} />
           </>
         )}
       </ButtonBox>
 
       {modal ? (
         <Modal
-          modalHandler={modalHandler}
           alert={alert}
-          alertHander={alertHander}
+          modalHandler={modalHandler}
+          checkHander={checkHander}
         ></Modal>
       ) : null}
     </FormArea>
