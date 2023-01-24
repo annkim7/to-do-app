@@ -16,7 +16,7 @@ const ModalBg = styled.div`
 `;
 
 const ModalCon = styled.div`
-  ${({ theme }) => theme.flexBox("column", "center", "space-between")}
+  ${({ theme }) => theme.flexBox("column", "center", "center")}
   width: 15rem;
   height: 11rem;
   padding: 2rem 1.563rem;
@@ -30,21 +30,34 @@ const ModalCon = styled.div`
   white-space: pre-wrap;
 `;
 
-export default function Modal({ modalHandler, alert, alertHander }) {
+export default function Modal({ modalHandler, alert, checkHander }) {
   return (
     <ModalBox>
       <ModalBg onClick={modalHandler}>
         <ModalCon onClick={(event) => event.stopPropagation()}>
           <span>
             {alert
-              ? `할 일이 등록되었습니다!`
-              : `등록된 할 일이 삭제됩니다.\n진행하시겠습니까?`}
+              ? `등록된 할 일이 삭제됩니다.\n진행하시겠습니까?`
+              : `할 일이 등록되었습니다!`}
           </span>
 
-          <ButtonBox>
-            <Button color="red" size="sm" modal="true" text={"삭제"} />
-            <Button size="sm" modal="true" text={"취소"} />
-          </ButtonBox>
+          {alert ? (
+            <ButtonBox>
+              <Button
+                color="red"
+                size="sm"
+                modal="true"
+                text="삭제"
+                onClick={checkHander}
+              />
+              <Button
+                size="sm"
+                modal="true"
+                text="취소"
+                onClick={modalHandler}
+              />
+            </ButtonBox>
+          ) : null}
         </ModalCon>
       </ModalBg>
     </ModalBox>

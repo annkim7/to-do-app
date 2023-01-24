@@ -53,9 +53,9 @@ const ButtonItem = styled.button`
   ${({ modal }) => handleModalType(modal)};
 `;
 
-export default function Button({ color, size, modal, text, modalHandler }) {
+export default function Button({ color, size, modal, text, ...rest }) {
   return (
-    <ButtonItem color={color} size={size} modal={modal} onClick={modalHandler}>
+    <ButtonItem color={color} size={size} modal={modal} {...rest}>
       {text}
     </ButtonItem>
   );
