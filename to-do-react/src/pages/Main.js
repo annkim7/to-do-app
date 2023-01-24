@@ -7,7 +7,7 @@ import Notice from "../components/Notice";
 import Item from "../components/Item";
 
 const MatinTitle = styled.h3`
-  margin-bottom: 1rem;
+  margin-bottom: 1.456rem;
 `;
 
 export default function Main({ data }) {

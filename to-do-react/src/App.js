@@ -31,8 +31,14 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Main data={data} />} />
             <Route path="/list" element={<List data={data} />} />
-            <Route path="/add" element={<Form page={page} />} />
-            <Route path="/edit" element={<Form page={page} />} />
+            <Route
+              path="/add"
+              element={<Form page={page} data={data} setData={setData} />}
+            />
+            <Route
+              path="/edit"
+              element={<Form page={page} data={data} setData={setData} />}
+            />
           </Routes>
         </main>
       </Router>

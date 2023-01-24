@@ -37,6 +37,8 @@ export const FormCheck = styled(Check)`
 
 export const WriteArea = styled.input`
   height: 1.625rem;
+  padding: 0.5rem;
+  color: ${({ theme }) => theme.editGray};
   border-radius: 0.313rem;
   box-shadow: ${({ theme }) => theme.borderShadow};
 `;

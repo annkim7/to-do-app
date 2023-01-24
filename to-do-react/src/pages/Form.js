@@ -19,14 +19,18 @@ const FormArea = styled.article`
   }
 `;
 
-export default function Form({ page }) {
+export default function Form({ page, data, setData }) {
   const [modal, setModal] = useState(false);
   const [alert, setAlert] = useState(false);
   const navigate = useNavigate();
 
+  const [title, setTitle] = useState("");
+  const [time, setTime] = useState("");
+  const [category, setCate] = useState("");
+
   const modalHandler = () => {
     setModal(!modal);
-    timeHandler(2000);
+    periodHandler(2000);
   };
 
   const alertHandler = () => {
@@ -36,13 +40,35 @@ export default function Form({ page }) {
 
   const checkHander = () => {
     setAlert(!alert);
-    timeHandler(2000);
+    periodHandler(2000);
   };
 
-  const timeHandler = (time) => {
+  const periodHandler = (time) => {
     setTimeout(() => {
       navigate(`/`);
     }, time);
+  };
+
+  const titleHandler = (e) => {
+    e.preventDefault();
+    setTitle(e.target.value);
+  };
+
+  const timeHandler = (e) => {
+    e.preventDefault();
+    setTime(e.target.value);
+  };
+
+  const cateHandler = (symbol) => {
+    setCate(symbol);
+  };
+
+  const addList = (e) => {
+    e.preventDefault();
+    setData([...data, { id: data.length, category, title, time, done: false }]);
+
+    setModal(!modal);
+    periodHandler(2000);
   };
 
   useEffect(() => {
@@ -53,14 +79,24 @@ export default function Form({ page }) {
   return (
     <FormArea>
       <h3>제목</h3>
-      <WriteArea type="text" title="제목 쓰기"></WriteArea>
+      <WriteArea
+        type="text"
+        title="제목 쓰기"
+        value={title}
+        onChange={titleHandler}
+      ></WriteArea>
       <h3>시간</h3>
-      <WriteArea type="text" title="시간 쓰기"></WriteArea>
+      <WriteArea
+        type="text"
+        title="시간 쓰기"
+        value={time}
+        onChange={timeHandler}
+      ></WriteArea>
       <h3>분류</h3>
       <ThreeColumns>
-        <Category symbol="water" />
-        <Category symbol="leaf" />
-        <Category symbol="pot" />
+        <Category symbol="water" onClick={() => cateHandler("water")} />
+        <Category symbol="leaf" onClick={() => cateHandler("leaf")} />
+        <Category symbol="pot" onClick={() => cateHandler("pot")} />
       </ThreeColumns>
       <h3>완료</h3>
       <ThreeColumns>
@@ -74,7 +110,7 @@ export default function Form({ page }) {
 
       <ButtonBox>
         {page === "add" ? (
-          <Button text="추가" onClick={modalHandler} />
+          <Button text="추가" onClick={addList} />
         ) : (
           <>
             <Button size="sm" text="수정" onClick={modalHandler} />
