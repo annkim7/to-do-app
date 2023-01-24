@@ -50,6 +50,8 @@ const GlobalStyle = createGlobalStyle`
     }
 
     #root{
+        overflow-y:scroll;
+        position:relative;
         width: 18.3rem;
         height:31.5rem;
         margin: 0 auto;

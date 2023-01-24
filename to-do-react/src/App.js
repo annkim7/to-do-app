@@ -10,10 +10,13 @@ import Nav from "./components/Nav";
 import List from "./pages/List";
 import Main from "./pages/Main";
 import Form from "./pages/Form";
+// data
+import Data from "./data/Data";
 
 // return
 export default function App() {
   const [page, setPage] = useState("main");
+  const [data, setData] = useState(Data);
 
   const pageHandler = (page) => {
     setPage(page);
@@ -26,8 +29,8 @@ export default function App() {
         <Nav pageHandler={pageHandler} />
         <main>
           <Routes>
-            <Route path="/" element={<Main />} />
-            <Route path="/list" element={<List />} />
+            <Route path="/" element={<Main data={data} />} />
+            <Route path="/list" element={<List data={data} />} />
             <Route path="/add" element={<Form page={page} />} />
             <Route path="/edit" element={<Form page={page} />} />
           </Routes>

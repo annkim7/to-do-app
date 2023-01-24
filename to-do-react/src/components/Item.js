@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import styled from "styled-components";
@@ -18,15 +18,27 @@ const Time = styled.span`
   color: ${({ theme }) => theme.timeGray};
 `;
 
-export default function Item() {
+export default function Item({ item }) {
+  const [done, setDone] = useState(false);
+
+  const doneHander = (e) => {
+    setDone(done);
+  };
+
   return (
-    <ItemLi>
+    <ItemLi key={item.id}>
       <Link to="/edit">
-        <Category symbol="water" />
-        <ListTitle>몬스테라 물주기</ListTitle>
-        <Time>14:00 ~ 15:00</Time>
+        <Category symbol={item.category} />
+        <ListTitle>{item.title}</ListTitle>
+        <Time>{item.time}</Time>
         <Check>
-          <input type="checkbox" title="완료 체크" id="checkDone"></input>
+          <input
+            type="checkbox"
+            title="완료 체크"
+            id="checkDone"
+            checked={item.done}
+            onChange={doneHander}
+          ></input>
           <label htmlFor="checkDone">
             <Icon icon="material-symbols:done"></Icon>
           </label>

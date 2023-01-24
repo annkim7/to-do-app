@@ -4,8 +4,12 @@ import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
 
 const Header = styled.header`
+  position: sticky;
+  width: 100%;
+  top: 0;
   ${({ theme }) => theme.flexBox("row", "center", "space-between")}
   padding: ${({ theme }) => theme.pd25};
+  background: #fff;
 `;
 
 const Logo = styled.h1`
