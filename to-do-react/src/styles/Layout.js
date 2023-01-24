@@ -7,7 +7,7 @@ export const ThreeColumns = styled.div`
 
 export const ListRows = styled.ul`
   display: grid;
-  row-gap: 0.6rem;
+  row-gap: 0.65rem;
 `;
 
 export const ItemLi = styled.li`

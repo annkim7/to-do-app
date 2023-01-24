@@ -1,7 +1,7 @@
 import React from "react";
 import { Icon } from "@iconify/react";
 import styled, { css } from "styled-components";
-import { ItemLi } from "../styles/Layout";
+import { ItemLi, ThreeColumns } from "../styles/Layout";
 
 const handleColorType = (symbol) => {
   switch (symbol) {
@@ -28,6 +28,10 @@ const CateIcon = styled.span`
   ${ItemLi} > a & {
     grid-area: a;
   }
+  ${ThreeColumns} & {
+    background: ${({ theme }) => theme.unableGray};
+    cursor: pointer;
+  }
   ${({ theme }) => theme.flexBox("row", "center", "center")}
   width: 3.625rem;
   height: 3.625rem;
@@ -38,7 +42,7 @@ const CateIcon = styled.span`
   color: #fff;
 `;
 
-export default function Category({ symbol }) {
+export default function Category({ symbol, ...rest }) {
   const symbolHandler = (item) => {
     switch (item) {
       case "water":
@@ -52,5 +56,9 @@ export default function Category({ symbol }) {
     }
   };
 
-  return <CateIcon symbol={symbol}>{symbolHandler(symbol)}</CateIcon>;
+  return (
+    <CateIcon symbol={symbol} {...rest}>
+      {symbolHandler(symbol)}
+    </CateIcon>
+  );
 }

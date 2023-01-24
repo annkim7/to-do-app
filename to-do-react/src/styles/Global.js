@@ -46,17 +46,18 @@ const GlobalStyle = createGlobalStyle`
     body{
         ${({ theme }) => theme.flexBox("row", "center", "center")}
         height:100%;
-        background:#f5f5f5;
+        background:#8dcacb;
     }
 
     #root{
         overflow-y:scroll;
         position:relative;
         width: 18.3rem;
-        height:31.5rem;
+        height:33rem;
         margin: 0 auto;
         border:1px solid #ddd;
         border-radius: 1rem;
+        background:#fff;
     }
 
     main{
