@@ -10,7 +10,7 @@ import Category from "../components/Category";
 import Button from "../components/Button";
 import Modal from "../components/Modal";
 
-const FormArea = styled.article`
+const FormArea = styled.form`
   margin-top: -1rem;
 
   h3 {

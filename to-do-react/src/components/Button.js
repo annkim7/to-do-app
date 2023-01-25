@@ -55,7 +55,7 @@ const ButtonItem = styled.button`
 
 export default function Button({ color, size, modal, text, ...rest }) {
   return (
-    <ButtonItem color={color} size={size} modal={modal} {...rest}>
+    <ButtonItem type="button" color={color} size={size} modal={modal} {...rest}>
       {text}
     </ButtonItem>
   );
