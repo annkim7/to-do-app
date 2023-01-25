@@ -65,7 +65,7 @@ const GlobalStyle = createGlobalStyle`
         width:100%;
     }
 
-    article{
+    article, form{
         padding:${({ theme }) => theme.pd25};
         padding-top:0;
     }
