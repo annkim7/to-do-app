@@ -24,9 +24,11 @@ export default function Form({ page, data, setData, idx }) {
   const [alert, setAlert] = useState(false);
   const navigate = useNavigate();
 
-  const [title, setTitle] = useState("");
-  const [time, setTime] = useState("");
-  const [category, setCate] = useState("");
+  const thisItem = data.filter((el) => el.id === idx)[0];
+
+  const [title, setTitle] = useState(thisItem ? thisItem.title : "");
+  const [time, setTime] = useState(thisItem ? thisItem.time : "");
+  const [category, setCate] = useState(thisItem ? thisItem.category : "");
 
   const modalHandler = () => {
     setModal(!modal);
@@ -73,6 +75,20 @@ export default function Form({ page, data, setData, idx }) {
     periodHandler(2000);
   };
 
+  const editList = (idx) => {
+    setData(
+      data.map((el) => {
+        if (el.id === idx) {
+          return { id: idx, category, title, time, done: true };
+        } else {
+          return el;
+        }
+      })
+    );
+    setModal(!modal);
+    periodHandler(2000);
+  };
+
   useEffect(() => {
     setAlert(false);
     setModal(false);
@@ -115,7 +131,7 @@ export default function Form({ page, data, setData, idx }) {
           <Button text="추가" onClick={addList} />
         ) : (
           <>
-            <Button size="sm" text="수정" onClick={modalHandler} />
+            <Button size="sm" text="수정" onClick={() => editList(idx)} />
             <Button color="red" size="sm" text="삭제" onClick={alertHandler} />
           </>
         )}

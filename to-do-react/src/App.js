@@ -9,6 +9,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Nav from "./components/Nav";
 import List from "./pages/List";
 import Main from "./pages/Main";
+// import Edit from "./pages/Edit";
+// import Add from "./pages/Add";
 import Form from "./pages/Form";
 // data
 import Data from "./data/Data";
@@ -27,6 +29,8 @@ export default function App() {
     setIdx(idx);
   };
 
+  console.log(idx);
+
   return (
     <ThemeProvider theme={{ ...theme, ...mixins }}>
       <Router>
@@ -34,7 +38,10 @@ export default function App() {
         <Nav pageHandler={pageHandler} />
         <main>
           <Routes>
-            <Route path="/" element={<Main data={data} />} />
+            <Route
+              path="/"
+              element={<Main data={data} idHandler={idHandler} />}
+            />
             <Route
               path="/list"
               element={<List data={data} idHandler={idHandler} />}

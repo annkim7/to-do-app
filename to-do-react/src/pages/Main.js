@@ -10,7 +10,7 @@ const MatinTitle = styled.h3`
   margin-bottom: 1.456rem;
 `;
 
-export default function Main({ data }) {
+export default function Main({ data, idHandler }) {
   const [notList, setNotList] = useState([]);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export default function Main({ data }) {
       <MatinTitle>할일 목록</MatinTitle>
       <ListRows>
         {notList.map((item, idx) => (
-          <Item key={idx} item={item} />
+          <Item key={idx} item={item} onClick={() => idHandler(item.id)} />
         ))}
       </ListRows>
     </article>
