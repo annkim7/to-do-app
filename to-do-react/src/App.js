@@ -9,9 +9,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Nav from "./components/Nav";
 import List from "./pages/List";
 import Main from "./pages/Main";
-// import Edit from "./pages/Edit";
-// import Add from "./pages/Add";
 import Form from "./pages/Form";
+import Add from "./pages/Add";
 // data
 import Data from "./data/Data";
 
@@ -48,7 +47,7 @@ export default function App() {
             />
             <Route
               path="/add"
-              element={<Form page={page} data={data} setData={setData} />}
+              element={<Add page={page} data={data} setData={setData} />}
             />
             <Route
               path="/edit"
