@@ -1,5 +1,14 @@
 import styled from "styled-components";
 
+export const FormArea = styled.form`
+  margin-top: -1rem;
+
+  h3 {
+    margin-top: 1rem;
+    margin-bottom: 1.1rem;
+  }
+`;
+
 export const ThreeColumns = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { ItemLi } from "./Layout";
 
-export const Check = styled.div`
+export const CheckArea = styled.div`
   ${ItemLi} > a & {
     grid-area: d;
   }
@@ -24,13 +24,13 @@ export const Check = styled.div`
   }
 `;
 
-export const FormCheck = styled(Check)`
-  input + label svg {
-    width: 2.28rem;
-    color: ${({ theme }) => theme.uncheckGray};
-    opacity: 1;
-  }
-  input:checked + label svg {
-    color: ${({ theme }) => theme.checkGreen};
-  }
-`;
+export default function Check1() {
+  return (
+    <CheckArea>
+      <input type="checkbox" title="완료 체크" id="checkDone"></input>
+      <label htmlFor="checkDone">
+        <Icon icon="material-symbols:done"></Icon>
+      </label>
+    </CheckArea>
+  );
+}
