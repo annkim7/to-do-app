@@ -28,7 +28,7 @@ export default function Item({ item, ...rest }) {
   return (
     <ItemLi key={item.id} {...rest}>
       <Link to="/edit">
-        <Category symbol={item.category} />
+        <Category symbol={item.category} active />
         <ListTitle>{item.title}</ListTitle>
         <Time>{item.time}</Time>
         <Check>

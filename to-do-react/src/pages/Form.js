@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Icon } from "@iconify/react";
 import { ThreeColumns, ButtonBox } from "../styles/Layout";
-import { FormCheck, WriteArea } from "../styles/Custom";
+import { FormCheck } from "../styles/Custom";
 
 import Category from "../components/Category";
 import Button from "../components/Button";
@@ -17,6 +17,14 @@ const FormArea = styled.form`
     margin-top: 1rem;
     margin-bottom: 1.1rem;
   }
+`;
+
+const WriteArea = styled.input`
+  height: 1.625rem;
+  padding: 0.5rem;
+  color: ${({ theme }) => theme.editGray};
+  border-radius: 0.313rem;
+  box-shadow: ${({ theme }) => theme.borderShadow};
 `;
 
 export default function Form({ page, data, setData, idx }) {

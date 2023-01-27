@@ -1,35 +1,22 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import styled from "styled-components";
-import { Icon } from "@iconify/react";
-import { ThreeColumns, ButtonBox } from "../styles/Layout";
-import { FormCheck } from "../styles/Custom";
-
-import Category from "../components/Category";
-import Button from "../components/Button";
-import Modal from "../components/Modal";
+import { ButtonBox, FormArea } from "../styles/Layout";
 
 import Input from "../components/Input";
 import useInput from "../util/useInput";
+import Choice from "../components/Choice";
 
-const FormArea = styled.form`
-  margin-top: -1rem;
+import Button from "../components/Button";
+import Modal from "../components/Modal";
 
-  h3 {
-    margin-top: 1rem;
-    margin-bottom: 1.1rem;
-  }
-`;
-
-export default function Form({ page, data, setData, idx }) {
+export default function Add({ data, setData }) {
   const [modal, setModal] = useState(false);
   const [alert, setAlert] = useState(false);
   const navigate = useNavigate();
 
-  const thisItem = data.filter((el) => el.id === idx)[0];
-
-  const [category, setCate] = useState(thisItem ? thisItem.category : "");
+  const [category, setCate] = useState("");
+  const [isActive, setActive] = useState(null);
 
   const [titleValue, titleBind, titleReset] = useInput("");
   const [timeValue, timeBind, timeReset] = useInput("");
@@ -45,8 +32,15 @@ export default function Form({ page, data, setData, idx }) {
     }, time);
   };
 
-  const cateHandler = (symbol) => {
+  const cateArr =
+    data &&
+    data.filter((el, idx, arr) => {
+      return arr.findIndex((item) => item.category === el.category) === idx;
+    });
+
+  const cateHandler = (symbol, idx) => {
     setCate(symbol);
+    setActive(idx);
   };
 
   const addList = (e) => {
@@ -64,6 +58,7 @@ export default function Form({ page, data, setData, idx }) {
 
     titleReset();
     timeReset();
+
     setModal(!modal);
     periodHandler(2000);
   };
@@ -77,22 +72,12 @@ export default function Form({ page, data, setData, idx }) {
     <FormArea>
       <Input label={"제목"} values={titleBind} />
       <Input label={"시간"} values={timeBind} />
-      <h3>분류</h3>
-      <ThreeColumns>
-        <Category symbol="water" onClick={() => cateHandler("water")} />
-        <Category symbol="leaf" onClick={() => cateHandler("leaf")} />
-        <Category symbol="pot" onClick={() => cateHandler("pot")} />
-      </ThreeColumns>
-      <h3>완료</h3>
-      <ThreeColumns>
-        <FormCheck>
-          <input type="checkbox" title="완료 체크" id="checkDone"></input>
-          <label htmlFor="checkDone">
-            <Icon icon="material-symbols:done"></Icon>
-          </label>
-        </FormCheck>
-      </ThreeColumns>
-
+      <Choice
+        label={"분류"}
+        cateArr={cateArr}
+        cateHandler={cateHandler}
+        isActive={isActive}
+      />
       <ButtonBox>
         <Button text="추가" onClick={addList} />
       </ButtonBox>
