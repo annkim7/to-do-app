@@ -1,6 +1,3 @@
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-
 import { ButtonBox, FormArea } from "../styles/Layout";
 
 import Input from "../components/Input";
@@ -9,37 +6,20 @@ import Choice from "../components/Choice";
 import useChoice from "../util/useChoice";
 import Check from "../components/Check";
 import useCheck from "../util/useCheck";
-
-import Button from "../components/Button";
 import Modal from "../components/Modal";
+import useModal from "../util/useModal";
+
+import Button from "../ButtonComponents/Button";
 
 export default function Edit({ data, setData, idx }) {
-  const [modal, setModal] = useState(false);
-  const [alert, setAlert] = useState(false);
-  const navigate = useNavigate();
-
   const thisItem = data.filter((el) => el.id === idx)[0];
 
   const [titleValue, titleBind] = useInput(thisItem ? thisItem.title : "");
   const [timeValue, timeBind] = useInput(thisItem ? thisItem.time : "");
   const [cateValue, cateBind] = useChoice(thisItem ? thisItem.category : null);
   const [checkValue, checkBind] = useCheck(thisItem ? thisItem.done : false);
-
-  const modalHandler = () => {
-    setModal(!modal);
-    periodHandler(2000);
-  };
-
-  const alertHandler = () => {
-    setAlert(!alert);
-    setModal(!modal);
-  };
-
-  const periodHandler = (time) => {
-    setTimeout(() => {
-      navigate(`/`);
-    }, time);
-  };
+  const [modalValue, modalBind, modalTime] = useModal(false);
+  const [alertValue, alertBind, alertTime] = useModal(false);
 
   const cateArr =
     data &&
@@ -49,9 +29,8 @@ export default function Edit({ data, setData, idx }) {
 
   const removeList = (idx) => {
     setData(data.filter((el) => el.id !== idx));
-
-    setAlert(!alert);
-    periodHandler(2000);
+    alertBind();
+    alertTime(2000);
   };
 
   const editList = (idx) => {
@@ -70,14 +49,9 @@ export default function Edit({ data, setData, idx }) {
         }
       })
     );
-    setModal(!modal);
-    periodHandler(2000);
+    modalBind();
+    modalTime(2000);
   };
-
-  useEffect(() => {
-    setAlert(false);
-    setModal(false);
-  }, []);
 
   return (
     <FormArea>
@@ -93,13 +67,22 @@ export default function Edit({ data, setData, idx }) {
 
       <ButtonBox>
         <Button size="sm" text="수정" onClick={() => editList(idx)} />
-        <Button color="red" size="sm" text="삭제" onClick={alertHandler} />
+        <Button
+          color="red"
+          size="sm"
+          text="삭제"
+          onClick={() => {
+            modalBind();
+            alertBind();
+          }}
+        />
       </ButtonBox>
 
-      {modal ? (
+      {modalValue ? (
         <Modal
-          alert={alert}
-          modalHandler={modalHandler}
+          label={"수정"}
+          alert={alertValue}
+          eventModal={modalBind}
           removeList={removeList}
           idx={idx}
         ></Modal>

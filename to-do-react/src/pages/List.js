@@ -1,16 +1,10 @@
-import React, { useState, useEffect } from "react";
-
 import Item from "../components/Item";
 import { ListRows } from "../styles/Layout";
 
 export default function List({ data, idHandler }) {
-  const [order, setOrder] = useState([]);
-
-  useEffect(() => {
-    const check = data.filter((el) => el.done === true);
-    const noCheck = data.filter((el) => el.done === false);
-    setOrder([...check, ...noCheck]);
-  }, [data]);
+  const check = data && data.filter((el) => el.done);
+  const noCheck = data && data.filter((el) => !el.done);
+  const order = [...check, ...noCheck];
 
   return (
     <article>

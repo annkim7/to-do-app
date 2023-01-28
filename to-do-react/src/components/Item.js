@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 
 import styled from "styled-components";
-import Category from "./Category";
 import { ItemLi } from "../styles/Layout";
-import Done from "../components/Done.js";
+import Category from "../ButtonComponents/Category";
+import Done from "../ButtonComponents/Done.js";
 import useCheck from "../util/useCheck";
 
 const ListTitle = styled.h4`

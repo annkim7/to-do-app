@@ -1,5 +1,5 @@
 import { ThreeColumns } from "../styles/Layout";
-import Done from "../components/Done";
+import Done from "../ButtonComponents/Done";
 
 export default function Check({ label, values }) {
   return (
