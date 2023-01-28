@@ -8,6 +8,7 @@ import useInput from "../util/useInput";
 import Choice from "../components/Choice";
 import useChoice from "../util/useChoice";
 import Check from "../components/Check";
+import useCheck from "../util/useCheck";
 
 import Button from "../components/Button";
 import Modal from "../components/Modal";
@@ -22,8 +23,7 @@ export default function Edit({ data, setData, idx }) {
   const [titleValue, titleBind] = useInput(thisItem ? thisItem.title : "");
   const [timeValue, timeBind] = useInput(thisItem ? thisItem.time : "");
   const [cateValue, cateBind] = useChoice(thisItem ? thisItem.category : null);
-
-  const [isCheck, setCheck] = useState("");
+  const [checkValue, checkBind] = useCheck(thisItem ? thisItem.done : false);
 
   const modalHandler = () => {
     setModal(!modal);
@@ -47,11 +47,6 @@ export default function Edit({ data, setData, idx }) {
       return arr.findIndex((item) => item.category === el.category) === idx;
     });
 
-  const checkHander = () => {
-    setCheck(!isCheck);
-    console.log(isCheck);
-  };
-
   const removeList = (idx) => {
     setData(data.filter((el) => el.id !== idx));
 
@@ -68,7 +63,7 @@ export default function Edit({ data, setData, idx }) {
             category: cateValue,
             title: titleValue,
             time: timeValue,
-            done: true,
+            done: checkValue,
           };
         } else {
           return el;
@@ -94,7 +89,7 @@ export default function Edit({ data, setData, idx }) {
         values={cateValue}
         event={cateBind}
       />
-      <Check label={"완료"} checked={isCheck} checkHander={checkHander} />
+      <Check label={"완료"} values={checkBind} />
 
       <ButtonBox>
         <Button size="sm" text="수정" onClick={() => editList(idx)} />

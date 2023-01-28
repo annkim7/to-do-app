@@ -29,20 +29,13 @@ export const CheckArea = styled.div`
   }
 `;
 
-export default function Check({ label, checked, checkHandler }) {
+export default function Check({ label, values }) {
   return (
     <>
       <h3>{label}</h3>
       <ThreeColumns>
         <CheckArea>
-          <input
-            type="checkbox"
-            title="완료 체크"
-            id="checkDone"
-            checked={checked}
-            onChange={checkHandler}
-            readOnly
-          />
+          <input type="checkbox" title="완료 체크" id="checkDone" {...values} />
           <label htmlFor="checkDone">
             <Icon icon="material-symbols:done"></Icon>
           </label>
