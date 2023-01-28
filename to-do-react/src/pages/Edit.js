@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { Icon } from "@iconify/react";
-import { ThreeColumns, ButtonBox, FormArea } from "../styles/Layout";
-import { FormCheck } from "../styles/Custom";
+import { ButtonBox, FormArea } from "../styles/Layout";
 
 import Input from "../components/Input";
 import useInput from "../util/useInput";
 import Choice from "../components/Choice";
+import useChoice from "../util/useChoice";
+import Check from "../components/Check";
 
 import Button from "../components/Button";
 import Modal from "../components/Modal";
@@ -21,9 +21,9 @@ export default function Edit({ data, setData, idx }) {
 
   const [titleValue, titleBind] = useInput(thisItem ? thisItem.title : "");
   const [timeValue, timeBind] = useInput(thisItem ? thisItem.time : "");
+  const [cateValue, cateBind] = useChoice(thisItem ? thisItem.category : null);
 
-  const [category, setCate] = useState("");
-  const [isActive, setActive] = useState(null);
+  const [isCheck, setCheck] = useState("");
 
   const modalHandler = () => {
     setModal(!modal);
@@ -47,9 +47,9 @@ export default function Edit({ data, setData, idx }) {
       return arr.findIndex((item) => item.category === el.category) === idx;
     });
 
-  const cateHandler = (symbol, idx) => {
-    setCate(symbol);
-    setActive(idx);
+  const checkHander = () => {
+    setCheck(!isCheck);
+    console.log(isCheck);
   };
 
   const removeList = (idx) => {
@@ -65,7 +65,7 @@ export default function Edit({ data, setData, idx }) {
         if (el.id === idx) {
           return {
             id: idx,
-            category,
+            category: cateValue,
             title: titleValue,
             time: timeValue,
             done: true,
@@ -90,19 +90,11 @@ export default function Edit({ data, setData, idx }) {
       <Input label={"시간"} values={timeBind} />
       <Choice
         label={"분류"}
-        cateArr={cateArr}
-        cateHandler={cateHandler}
-        isActive={isActive}
+        array={cateArr}
+        values={cateValue}
+        event={cateBind}
       />
-      <h3>완료</h3>
-      <ThreeColumns>
-        <FormCheck>
-          <input type="checkbox" title="완료 체크" id="checkDone"></input>
-          <label htmlFor="checkDone">
-            <Icon icon="material-symbols:done"></Icon>
-          </label>
-        </FormCheck>
-      </ThreeColumns>
+      <Check label={"완료"} checked={isCheck} checkHander={checkHander} />
 
       <ButtonBox>
         <Button size="sm" text="수정" onClick={() => editList(idx)} />

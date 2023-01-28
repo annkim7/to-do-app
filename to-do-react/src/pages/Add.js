@@ -6,6 +6,7 @@ import { ButtonBox, FormArea } from "../styles/Layout";
 import Input from "../components/Input";
 import useInput from "../util/useInput";
 import Choice from "../components/Choice";
+import useChoice from "../util/useChoice";
 
 import Button from "../components/Button";
 import Modal from "../components/Modal";
@@ -15,11 +16,9 @@ export default function Add({ data, setData }) {
   const [alert, setAlert] = useState(false);
   const navigate = useNavigate();
 
-  const [category, setCate] = useState("");
-  const [isActive, setActive] = useState(null);
-
-  const [titleValue, titleBind, titleReset] = useInput("");
-  const [timeValue, timeBind, timeReset] = useInput("");
+  const [titleValue, titleBind] = useInput("");
+  const [timeValue, timeBind] = useInput("");
+  const [cateValue, cateBind] = useChoice("");
 
   const modalHandler = () => {
     setModal(!modal);
@@ -38,26 +37,18 @@ export default function Add({ data, setData }) {
       return arr.findIndex((item) => item.category === el.category) === idx;
     });
 
-  const cateHandler = (symbol, idx) => {
-    setCate(symbol);
-    setActive(idx);
-  };
-
   const addList = (e) => {
     e.preventDefault();
     setData([
       ...data,
       {
         id: data.length,
-        category,
+        category: cateValue,
         title: titleValue,
         time: timeValue,
         done: false,
       },
     ]);
-
-    titleReset();
-    timeReset();
 
     setModal(!modal);
     periodHandler(2000);
@@ -74,9 +65,9 @@ export default function Add({ data, setData }) {
       <Input label={"시간"} values={timeBind} />
       <Choice
         label={"분류"}
-        cateArr={cateArr}
-        cateHandler={cateHandler}
-        isActive={isActive}
+        array={cateArr}
+        values={cateValue}
+        event={cateBind}
       />
       <ButtonBox>
         <Button text="추가" onClick={addList} />

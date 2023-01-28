@@ -8,9 +8,9 @@ export default function useInput(initial) {
     onChange: (e) => setValue(e.target.value),
   };
 
-  const reset = () => {
-    setValue("");
-  };
+  // const reset = () => {
+  //   setValue("");
+  // };
 
-  return [value, bind, reset];
+  return [value, bind];
 }
