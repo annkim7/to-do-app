@@ -1,5 +1,5 @@
 import { ThreeColumns } from "../styles/Layout";
-import Category from "../components/Category";
+import Category from "../ButtonComponents/Category";
 
 export default function Choice({ label, array, values, event }) {
   return (

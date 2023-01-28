@@ -35,11 +35,20 @@ const LightBlueButton = styled.button`
   font-weight: 500;
 `;
 
-export default function Notice() {
+export default function Notice({ data }) {
+  const doneArr = data && data.filter((el) => el.done);
+
+  const now = new Date();
+  const week = ["일", "월", "화", "수", "목", "금", "토"];
+
   return (
     <Alarm>
-      <span className="date">2023년 1월 10일 화요일</span>
-      <h2 className="alarm">오늘 3개의 할 일을 완료하였습니다</h2>
+      <span className="date">{`${now.getFullYear()}년 ${
+        now.getMonth() + 1
+      }월 ${now.getDate()}일 ${week[now.getDay()]}요일`}</span>
+      <h2 className="alarm">
+        {`오늘 ${doneArr.length}개의 할 일을 완료하였습니다`}
+      </h2>
       <LightBlueButton>
         <Link to="/list">확인하러 가기</Link>
       </LightBlueButton>

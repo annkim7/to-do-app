@@ -1,8 +1,6 @@
-import React from "react";
-
 import styled from "styled-components";
 import { ButtonBox } from "../styles/Layout";
-import Button from "../components/Button";
+import Button from "../ButtonComponents/Button";
 
 const ModalBox = styled.section`
   ${({ theme }) => theme.positionCenter()}
@@ -30,15 +28,16 @@ const ModalCon = styled.div`
   white-space: pre-wrap;
 `;
 
-export default function Modal({ modalHandler, alert, removeList, idx }) {
+export default function Modal({ label, alert, eventModal, removeList, idx }) {
+  console.log(label);
   return (
     <ModalBox>
-      <ModalBg onClick={modalHandler}>
+      <ModalBg onClick={eventModal}>
         <ModalCon onClick={(event) => event.stopPropagation()}>
           <span>
             {alert
               ? `등록된 할 일이 삭제됩니다.\n진행하시겠습니까?`
-              : `할 일이 등록되었습니다!`}
+              : `할 일이 ${label}되었습니다!`}
           </span>
 
           {alert ? (
@@ -50,12 +49,7 @@ export default function Modal({ modalHandler, alert, removeList, idx }) {
                 text="삭제"
                 onClick={() => removeList(idx)}
               />
-              <Button
-                size="sm"
-                modal="true"
-                text="취소"
-                onClick={modalHandler}
-              />
+              <Button size="sm" modal="true" text="취소" onClick={eventModal} />
             </ButtonBox>
           ) : null}
         </ModalCon>

@@ -1,5 +1,3 @@
-import React, { useState, useEffect } from "react";
-
 import styled from "styled-components";
 import { ListRows } from "../styles/Layout";
 
@@ -11,15 +9,11 @@ const MatinTitle = styled.h3`
 `;
 
 export default function Main({ data, idHandler }) {
-  const [notList, setNotList] = useState([]);
-
-  useEffect(() => {
-    setNotList(data.filter((el) => el.done === false));
-  }, [data]);
+  const notList = data && data.filter((el) => !el.done);
 
   return (
     <article>
-      <Notice />
+      <Notice data={data} />
       <MatinTitle>할일 목록</MatinTitle>
       <ListRows>
         {notList.map((item, idx) => (
