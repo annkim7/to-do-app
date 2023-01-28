@@ -1,11 +1,10 @@
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import styled from "styled-components";
-import { Icon } from "@iconify/react";
-import { Check } from "../styles/Custom";
 import Category from "./Category";
 import { ItemLi } from "../styles/Layout";
+import Done from "../components/Done.js";
+import useCheck from "../util/useCheck";
 
 const ListTitle = styled.h4`
   padding: 0.8rem 0.6rem 0 0.6rem;
@@ -19,11 +18,7 @@ const Time = styled.span`
 `;
 
 export default function Item({ item, ...rest }) {
-  const [done, setDone] = useState(false);
-
-  const doneHander = (e) => {
-    setDone(done);
-  };
+  const checkBind = useCheck(item.done)[1];
 
   return (
     <ItemLi key={item.id} {...rest}>
@@ -31,18 +26,7 @@ export default function Item({ item, ...rest }) {
         <Category symbol={item.category} active />
         <ListTitle>{item.title}</ListTitle>
         <Time>{item.time}</Time>
-        <Check>
-          <input
-            type="checkbox"
-            title="완료 체크"
-            id="checkDone"
-            checked={item.done}
-            onChange={doneHander}
-          ></input>
-          <label htmlFor="checkDone">
-            <Icon icon="material-symbols:done"></Icon>
-          </label>
-        </Check>
+        <Done label={"완료"} values={checkBind} />
       </Link>
     </ItemLi>
   );
