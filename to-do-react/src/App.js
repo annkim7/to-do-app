@@ -16,13 +16,6 @@ const Add = React.lazy(() => import("./pages/Add"));
 
 export default function App() {
   const [data, setData] = useState(Data);
-  const [idx, setIdx] = useState("");
-
-  const idHandler = (idx) => {
-    setIdx(idx);
-  };
-
-  console.log(idx);
 
   return (
     <ThemeProvider theme={{ ...theme, ...mixins }}>
@@ -32,21 +25,15 @@ export default function App() {
           <Nav />
           <main>
             <Routes>
-              <Route
-                path="/"
-                element={<Main data={data} idHandler={idHandler} />}
-              />
-              <Route
-                path="/list"
-                element={<List data={data} idHandler={idHandler} />}
-              />
+              <Route path="/" element={<Main data={data} />} />
+              <Route path="/list" element={<List data={data} />} />
               <Route
                 path="/add"
                 element={<Add data={data} setData={setData} />}
               />
               <Route
-                path="/edit"
-                element={<Edit data={data} setData={setData} idx={idx} />}
+                path="/edit/:id"
+                element={<Edit data={data} setData={setData} />}
               />
             </Routes>
           </main>
