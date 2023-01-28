@@ -1,3 +1,4 @@
+import { useParams } from "react-router-dom";
 import { ButtonBox, FormArea } from "../styles/Layout";
 
 import Input from "../components/Input";
@@ -11,8 +12,9 @@ import useModal from "../util/useModal";
 
 import Button from "../ButtonComponents/Button";
 
-export default function Edit({ data, setData, idx }) {
-  const thisItem = data.filter((el) => el.id === idx)[0];
+export default function Edit({ data, setData }) {
+  const { id } = useParams();
+  const thisItem = data.filter((el) => el.id === id)[0];
 
   const [titleValue, titleBind] = useInput(thisItem ? thisItem.title : "");
   const [timeValue, timeBind] = useInput(thisItem ? thisItem.time : "");
@@ -66,7 +68,7 @@ export default function Edit({ data, setData, idx }) {
       <Check label={"완료"} values={checkBind} />
 
       <ButtonBox>
-        <Button size="sm" text="수정" onClick={() => editList(idx)} />
+        <Button size="sm" text="수정" onClick={() => editList(id)} />
         <Button
           color="red"
           size="sm"
@@ -84,7 +86,7 @@ export default function Edit({ data, setData, idx }) {
           alert={alertValue}
           eventModal={modalBind}
           removeList={removeList}
-          idx={idx}
+          idx={id}
         ></Modal>
       ) : null}
     </FormArea>

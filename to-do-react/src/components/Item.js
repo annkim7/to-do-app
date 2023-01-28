@@ -17,12 +17,12 @@ const Time = styled.span`
   color: ${({ theme }) => theme.timeGray};
 `;
 
-export default function Item({ item, ...rest }) {
+export default function Item({ item }) {
   const checkBind = useCheck(item.done)[1];
 
   return (
-    <ItemLi key={item.id} {...rest}>
-      <Link to="/edit">
+    <ItemLi key={item.id}>
+      <Link to={`/edit/${item.id}`}>
         <Category symbol={item.category} active />
         <ListTitle>{item.title}</ListTitle>
         <Time>{item.time}</Time>
