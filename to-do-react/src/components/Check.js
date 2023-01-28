@@ -1,9 +1,14 @@
 import styled from "styled-components";
-import { ItemLi } from "./Layout";
+import { ItemLi } from "../styles/Layout";
+import { Icon } from "@iconify/react";
+import { ThreeColumns } from "../styles/Layout";
 
 export const CheckArea = styled.div`
   ${ItemLi} > a & {
     grid-area: d;
+    input + label svg {
+      width: 1rem;
+    }
   }
   ${({ theme }) => theme.flexBox("row", "center", "center")}
   color: ${({ theme }) => theme.checkGreen};
@@ -15,22 +20,34 @@ export const CheckArea = styled.div`
     cursor: pointer;
   }
   input + label svg {
-    width: 1rem;
+    width: 2.28rem;
     height: 100%;
-    opacity: 0;
+    color: ${({ theme }) => theme.uncheckGray};
   }
   input:checked + label svg {
-    opacity: 1;
+    color: ${({ theme }) => theme.checkGreen};
   }
 `;
 
-export default function Check1() {
+export default function Check({ label, checked, checkHandler }) {
   return (
-    <CheckArea>
-      <input type="checkbox" title="완료 체크" id="checkDone"></input>
-      <label htmlFor="checkDone">
-        <Icon icon="material-symbols:done"></Icon>
-      </label>
-    </CheckArea>
+    <>
+      <h3>{label}</h3>
+      <ThreeColumns>
+        <CheckArea>
+          <input
+            type="checkbox"
+            title="완료 체크"
+            id="checkDone"
+            checked={checked}
+            onChange={checkHandler}
+            readOnly
+          />
+          <label htmlFor="checkDone">
+            <Icon icon="material-symbols:done"></Icon>
+          </label>
+        </CheckArea>
+      </ThreeColumns>
+    </>
   );
 }
