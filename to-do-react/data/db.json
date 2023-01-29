@@ -38,23 +38,37 @@
     {
       "id": 6,
       "category": "pot",
-      "title": "아이비 분갈이",
+      "title": "스킨답서스 분갈이",
       "time": "다음주",
       "done": true
-    },
-    {
-      "id": 11,
-      "category": "water",
-      "title": "222",
-      "time": "2222",
-      "done": false
     },
     {
       "id": 12,
       "category": "leaf",
       "title": "고구마 물주기",
-      "time": "13: 00 ~ 14: 00",
+      "time": "오늘 오후",
       "done": false
+    },
+    {
+      "id": 9,
+      "category": "water",
+      "title": "아이비 물주기",
+      "time": "12: 00 ~ 14: 00",
+      "done": true
+    },
+    {
+      "category": "leaf",
+      "title": "알로에 분갈이",
+      "time": "12이후",
+      "done": true,
+      "id": 14
+    },
+    {
+      "category": "leaf",
+      "title": "ㅈㄷㅈㄱ",
+      "time": "ㄷㅈㄱㅈㄲㄷ",
+      "done": false,
+      "id": 15
     }
   ]
 }

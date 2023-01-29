@@ -1,18 +1,31 @@
+import useFetch from "../util/useFetch";
+
 import Item from "../components/Item";
 import { ListRows } from "../styles/Layout";
 
-export default function List({ data }) {
-  const check = data && data.filter((el) => el.done);
-  const noCheck = data && data.filter((el) => !el.done);
-  const order = [...check, ...noCheck];
+export default function List() {
+  const [data, isPending, error] = useFetch("http://localhost:3001/data");
+
+  const array =
+    data &&
+    data.sort((a, b) => {
+      if (a.done > b.done) return -1;
+      else return 1;
+    });
 
   return (
-    <article>
-      <ListRows>
-        {order.map((item, idx) => (
-          <Item key={idx} item={item} />
-        ))}
-      </ListRows>
-    </article>
+    <>
+      {isPending && <div>Loading...</div>}
+      {error && <div>{error}</div>}
+      {data && (
+        <article>
+          <ListRows>
+            {array.map((item, idx) => (
+              <Item key={idx} item={item} />
+            ))}
+          </ListRows>
+        </article>
+      )}
+    </>
   );
 }
