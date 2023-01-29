@@ -28,7 +28,7 @@ const ModalCon = styled.div`
   white-space: pre-wrap;
 `;
 
-export default function Modal({ label, alert, eventModal, removeList, idx }) {
+export default function Modal({ label, alert, eventModal, handleDelete }) {
   console.log(label);
   return (
     <ModalBox>
@@ -47,7 +47,8 @@ export default function Modal({ label, alert, eventModal, removeList, idx }) {
                 size="sm"
                 modal="true"
                 text="삭제"
-                onClick={() => removeList(idx)}
+                type="button"
+                onClick={handleDelete}
               />
               <Button size="sm" modal="true" text="취소" onClick={eventModal} />
             </ButtonBox>

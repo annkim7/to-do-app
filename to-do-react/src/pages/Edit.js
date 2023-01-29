@@ -1,4 +1,3 @@
-import useFetch from "../util/useFetch";
 import { useParams } from "react-router-dom";
 
 import { ButtonBox, FormArea } from "../styles/Layout";
@@ -13,12 +12,10 @@ import Modal from "../components/Modal";
 import useModal from "../util/useModal";
 
 import Button from "../ButtonComponents/Button";
+import { apiDelete } from "../util/api";
 
 export default function Edit({ data, setData }) {
   const { id } = useParams();
-  const [datum, isPending, error] = useFetch(
-    `http://localhost:3001/data/${id}`
-  );
 
   const [titleValue, titleBind] = useInput("");
   const [timeValue, timeBind] = useInput("");
@@ -33,8 +30,8 @@ export default function Edit({ data, setData }) {
       return arr.findIndex((item) => item.category === el.category) === idx;
     });
 
-  const removeList = (idx) => {
-    setData(data.filter((el) => el.id !== idx));
+  const handleDelete = () => {
+    apiDelete(`http://localhost:3001/data/${id}`);
     alertBind();
     alertTime(2000);
   };
@@ -61,9 +58,7 @@ export default function Edit({ data, setData }) {
 
   return (
     <FormArea>
-      {isPending && <div>Loading...</div>}
-      {error && <div>{error}</div>}
-      {datum && (
+      {data && (
         <>
           <Input label={"제목"} values={titleBind} />
           <Input label={"시간"} values={timeBind} />
@@ -81,6 +76,7 @@ export default function Edit({ data, setData }) {
               color="red"
               size="sm"
               text="삭제"
+              type="button"
               onClick={() => {
                 modalBind();
                 alertBind();
@@ -93,7 +89,7 @@ export default function Edit({ data, setData }) {
               label={"수정"}
               alert={alertValue}
               eventModal={modalBind}
-              removeList={removeList}
+              handleDelete={handleDelete}
               idx={id}
             ></Modal>
           ) : null}
