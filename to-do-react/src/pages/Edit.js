@@ -1,4 +1,6 @@
+import useFetch from "../util/useFetch";
 import { useParams } from "react-router-dom";
+
 import { ButtonBox, FormArea } from "../styles/Layout";
 
 import Input from "../components/Input";
@@ -14,12 +16,14 @@ import Button from "../ButtonComponents/Button";
 
 export default function Edit({ data, setData }) {
   const { id } = useParams();
-  const thisItem = data.filter((el) => el.id === id)[0];
+  const [datum, isPending, error] = useFetch(
+    `http://localhost:3001/data/${id}`
+  );
 
-  const [titleValue, titleBind] = useInput(thisItem ? thisItem.title : "");
-  const [timeValue, timeBind] = useInput(thisItem ? thisItem.time : "");
-  const [cateValue, cateBind] = useChoice(thisItem ? thisItem.category : null);
-  const [checkValue, checkBind] = useCheck(thisItem ? thisItem.done : false);
+  const [titleValue, titleBind] = useInput("");
+  const [timeValue, timeBind] = useInput("");
+  const [cateValue, cateBind] = useChoice(null);
+  const [checkValue, checkBind] = useCheck(false);
   const [modalValue, modalBind, modalTime] = useModal(false);
   const [alertValue, alertBind, alertTime] = useModal(false);
 
@@ -57,38 +61,44 @@ export default function Edit({ data, setData }) {
 
   return (
     <FormArea>
-      <Input label={"제목"} values={titleBind} />
-      <Input label={"시간"} values={timeBind} />
-      <Choice
-        label={"분류"}
-        array={cateArr}
-        values={cateValue}
-        event={cateBind}
-      />
-      <Check label={"완료"} values={checkBind} />
+      {isPending && <div>Loading...</div>}
+      {error && <div>{error}</div>}
+      {datum && (
+        <>
+          <Input label={"제목"} values={titleBind} />
+          <Input label={"시간"} values={timeBind} />
+          <Choice
+            label={"분류"}
+            array={cateArr}
+            values={cateValue}
+            event={cateBind}
+          />
+          <Check label={"완료"} values={checkBind} />
 
-      <ButtonBox>
-        <Button size="sm" text="수정" onClick={() => editList(id)} />
-        <Button
-          color="red"
-          size="sm"
-          text="삭제"
-          onClick={() => {
-            modalBind();
-            alertBind();
-          }}
-        />
-      </ButtonBox>
+          <ButtonBox>
+            <Button size="sm" text="수정" onClick={() => editList(id)} />
+            <Button
+              color="red"
+              size="sm"
+              text="삭제"
+              onClick={() => {
+                modalBind();
+                alertBind();
+              }}
+            />
+          </ButtonBox>
 
-      {modalValue ? (
-        <Modal
-          label={"수정"}
-          alert={alertValue}
-          eventModal={modalBind}
-          removeList={removeList}
-          idx={id}
-        ></Modal>
-      ) : null}
+          {modalValue ? (
+            <Modal
+              label={"수정"}
+              alert={alertValue}
+              eventModal={modalBind}
+              removeList={removeList}
+              idx={id}
+            ></Modal>
+          ) : null}
+        </>
+      )}
     </FormArea>
   );
 }

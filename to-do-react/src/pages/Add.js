@@ -1,3 +1,4 @@
+import { apiAdd } from "../util/api";
 import { ButtonBox, FormArea } from "../styles/Layout";
 
 import Input from "../components/Input";
@@ -9,7 +10,7 @@ import useModal from "../util/useModal";
 
 import Button from "../ButtonComponents/Button";
 
-export default function Add({ data, setData }) {
+export default function Add({ data }) {
   const [titleValue, titleBind] = useInput("");
   const [timeValue, timeBind] = useInput("");
   const [cateValue, cateBind] = useChoice("");
@@ -21,25 +22,24 @@ export default function Add({ data, setData }) {
       return arr.findIndex((item) => item.category === el.category) === idx;
     });
 
-  const addList = (e) => {
+  const handleSumbit = (e) => {
     e.preventDefault();
-    setData([
-      ...data,
-      {
-        id: data.length,
-        category: cateValue,
-        title: titleValue,
-        time: timeValue,
-        done: false,
-      },
-    ]);
 
+    const item = {
+      id: data.length + 1,
+      category: cateValue,
+      title: titleValue,
+      time: timeValue,
+      done: false,
+    };
+
+    apiAdd(`http://localhost:3001/data`, item);
     modalBind();
     modalTime(2000);
   };
 
   return (
-    <FormArea>
+    <FormArea onSubmit={handleSumbit}>
       <Input label={"제목"} values={titleBind} />
       <Input label={"시간"} values={timeBind} />
       <Choice
@@ -49,7 +49,7 @@ export default function Add({ data, setData }) {
         event={cateBind}
       />
       <ButtonBox>
-        <Button text="추가" onClick={addList} />
+        <Button text="추가" />
       </ButtonBox>
 
       {modalValue ? (
