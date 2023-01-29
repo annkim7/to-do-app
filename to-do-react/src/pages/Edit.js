@@ -12,9 +12,9 @@ import Modal from "../components/Modal";
 import useModal from "../util/useModal";
 
 import Button from "../ButtonComponents/Button";
-import { apiDelete } from "../util/api";
+import { apiDelete, apiEdit } from "../util/api";
 
-export default function Edit({ data, setData }) {
+export default function Edit({ data }) {
   const { id } = useParams();
 
   const [titleValue, titleBind] = useInput("");
@@ -36,22 +36,14 @@ export default function Edit({ data, setData }) {
     alertTime(2000);
   };
 
-  const editList = (idx) => {
-    setData(
-      data.map((el) => {
-        if (el.id === idx) {
-          return {
-            id: idx,
-            category: cateValue,
-            title: titleValue,
-            time: timeValue,
-            done: checkValue,
-          };
-        } else {
-          return el;
-        }
-      })
-    );
+  const handleEdit = () => {
+    const item = {
+      category: cateValue,
+      title: titleValue,
+      time: timeValue,
+      done: checkValue,
+    };
+    apiEdit(`http://localhost:3001/data/${id}`, item);
     modalBind();
     modalTime(2000);
   };
@@ -71,7 +63,7 @@ export default function Edit({ data, setData }) {
           <Check label={"완료"} values={checkBind} />
 
           <ButtonBox>
-            <Button size="sm" text="수정" onClick={() => editList(id)} />
+            <Button size="sm" text="수정" type="button" onClick={handleEdit} />
             <Button
               color="red"
               size="sm"
@@ -90,7 +82,6 @@ export default function Edit({ data, setData }) {
               alert={alertValue}
               eventModal={modalBind}
               handleDelete={handleDelete}
-              idx={id}
             ></Modal>
           ) : null}
         </>
