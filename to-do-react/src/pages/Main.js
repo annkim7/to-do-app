@@ -1,3 +1,5 @@
+import useFetch from "../util/useFetch";
+
 import styled from "styled-components";
 import { ListRows } from "../styles/Layout";
 
@@ -8,12 +10,14 @@ const MatinTitle = styled.h3`
   margin-bottom: 1.456rem;
 `;
 
-export default function Main({ data, isPending }) {
+export default function Main() {
+  const [data, isPending, error] = useFetch("http://localhost:3001/data");
   const notList = data && data.filter((el) => !el.done);
 
   return (
     <>
       {isPending && <div>Loading...</div>}
+      {error && <div>{error}</div>}
       {data && (
         <article>
           <Notice data={data} />

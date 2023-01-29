@@ -1,7 +1,22 @@
 import { ThreeColumns } from "../styles/Layout";
 import Category from "../ButtonComponents/Category";
 
-export default function Choice({ label, array, values, event }) {
+export default function Choice({ label, values, event }) {
+  const array = [
+    {
+      id: 1,
+      category: "water",
+    },
+    {
+      id: 2,
+      category: "leaf",
+    },
+    {
+      id: 3,
+      category: "pot",
+    },
+  ];
+
   return (
     <>
       <h3>{label}</h3>
