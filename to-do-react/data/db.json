@@ -43,33 +43,6 @@
       "done": true
     },
     {
-      "category": "leaf",
-      "title": "??? 가지치기",
-      "time": "오늘 아침",
-      "id": 7
-    },
-    {
-      "id": 8,
-      "category": "water",
-      "title": "ㄴㅁㅇㄴㅁ",
-      "time": "ㅇㅁㅇㄴ",
-      "done": false
-    },
-    {
-      "id": 9,
-      "category": "leaf",
-      "title": "sfds",
-      "time": "2222",
-      "done": false
-    },
-    {
-      "id": 10,
-      "category": "water",
-      "title": "221111",
-      "time": "1111",
-      "done": false
-    },
-    {
       "id": 11,
       "category": "water",
       "title": "222",
