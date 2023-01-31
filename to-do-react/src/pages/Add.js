@@ -14,7 +14,7 @@ export default function Add() {
   const [title, titleBind] = useInput("");
   const [time, timeBind] = useInput("");
   const [category, cateBind] = useChoice("");
-  const [modalValue, modalBind, modalTime] = useModal(false);
+  const [modalValue, modalBind] = useModal(false);
 
   const handleSumbit = (e) => {
     e.preventDefault();
@@ -22,7 +22,6 @@ export default function Add() {
     const item = { category, title, time, done: false };
     apiAdd(`http://localhost:3001/data`, item);
     modalBind();
-    modalTime(2000);
   };
 
   return (

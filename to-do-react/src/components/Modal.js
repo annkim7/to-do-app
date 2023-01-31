@@ -29,7 +29,6 @@ const ModalCon = styled.div`
 `;
 
 export default function Modal({ label, alert, eventModal, handleDelete }) {
-  console.log(label);
   return (
     <ModalBox>
       <ModalBg onClick={eventModal}>
