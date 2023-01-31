@@ -43,13 +43,6 @@
       "done": true
     },
     {
-      "id": 12,
-      "category": "leaf",
-      "title": "고구마 물주기",
-      "time": "오늘 오후",
-      "done": false
-    },
-    {
       "id": 9,
       "category": "water",
       "title": "아이비 물주기",
@@ -57,18 +50,11 @@
       "done": true
     },
     {
-      "category": "leaf",
-      "title": "알로에 분갈이",
-      "time": "12이후",
-      "done": true,
-      "id": 14
-    },
-    {
-      "category": "leaf",
-      "title": "ㅈㄷㅈㄱ",
-      "time": "ㄷㅈㄱㅈㄲㄷ",
+      "category": "pot",
+      "title": "당근 분갈이",
+      "time": "14: 00 ~ 16 : 00",
       "done": false,
-      "id": 15
+      "id": 10
     }
   ]
 }

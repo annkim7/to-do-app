@@ -20,20 +20,19 @@ export default function Form({ datum }) {
   const [time, timeBind] = useInput(datum.time || "");
   const [category, cateBind] = useChoice(datum.category || null);
   const [done, checkBind] = useCheck(datum.done || false);
-  const [modal, modalBind, modalTime] = useModal(false);
-  const [alert, alertBind, alertTime] = useModal(false);
+  const [modal, modalBind] = useModal(false);
+  const [alert, alertBind] = useModal(false);
+  const [del, delBind] = useModal(false);
 
   const handleDelete = () => {
     apiDelete(`http://localhost:3001/data/${id}`);
     alertBind();
-    alertTime(2000);
   };
 
   const handleEdit = () => {
     const item = { category, title, time, done };
     apiEdit(`http://localhost:3001/data/${id}`, item);
     modalBind();
-    modalTime(2000);
   };
 
   return (
@@ -53,13 +52,14 @@ export default function Form({ datum }) {
           onClick={() => {
             modalBind();
             alertBind();
+            delBind();
           }}
         />
       </ButtonBox>
 
       {modal ? (
         <Modal
-          label={"수정"}
+          label={del ? "삭제" : "수정"}
           alert={alert}
           eventModal={modalBind}
           handleDelete={handleDelete}
