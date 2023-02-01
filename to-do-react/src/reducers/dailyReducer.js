@@ -1,16 +1,36 @@
-import { TEST } from "../actions/index";
+import { GET_LOADING, GET_SUCCESS, GET_ERROR } from "../actions";
 
 const initialState = {
-  test: "test",
+  data: [],
+  loading: false,
+  error: "",
 };
 
-const dailyReducer = (state = initialState, action) => {
+export default function dailyReducer(state = initialState, action) {
   switch (action.type) {
-    case TEST:
-      return "check";
-    default:
+    case GET_LOADING: {
+      return {
+        ...state,
+        loading: true,
+        error: "",
+      };
+    }
+    case GET_SUCCESS: {
+      return {
+        ...state,
+        data: action.data,
+        loading: false,
+      };
+    }
+    case GET_ERROR: {
+      return {
+        ...state,
+        loading: false,
+        error: action.error,
+      };
+    }
+    default: {
       return state;
+    }
   }
-};
-
-export default dailyReducer;
+}

@@ -55,6 +55,13 @@
       "time": "14: 00 ~ 16 : 00",
       "done": false,
       "id": 10
+    },
+    {
+      "category": "water",
+      "title": "알로카시아 물주기",
+      "time": "13 : 00  ~ 18 : 00",
+      "done": false,
+      "id": 11
     }
   ]
 }
