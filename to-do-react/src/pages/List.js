@@ -1,23 +1,30 @@
-import useFetch from "../util/useFetch";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getData } from "../actions/index";
 
 import Item from "../components/Item";
 import { ListRows } from "../styles/Layout";
 
 export default function List() {
-  const [data, isPending, error] = useFetch("http://localhost:3001/data");
+  const state = useSelector((state) => state.dailyReducer);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getData("http://localhost:3001/data"));
+  }, [dispatch]);
 
   const array =
-    data &&
-    data.sort((a, b) => {
+    state.data &&
+    state.data.sort((a, b) => {
       if (a.done > b.done) return -1;
       else return 1;
     });
 
   return (
     <>
-      {isPending && <div>Loading...</div>}
-      {error && <div>{error}</div>}
-      {data && (
+      {state.loading && <div>Loading...</div>}
+      {state.error && <div>{state.error}</div>}
+      {state.data && (
         <article>
           <ListRows>
             {array.map((item, idx) => (

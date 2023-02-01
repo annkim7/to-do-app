@@ -1,4 +1,6 @@
-import useFetch from "../util/useFetch";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getData } from "../actions/index";
 
 import styled from "styled-components";
 import { ListRows } from "../styles/Layout";
@@ -11,16 +13,22 @@ const MatinTitle = styled.h3`
 `;
 
 export default function Main() {
-  const [data, isPending, error] = useFetch("http://localhost:3001/data");
-  const notList = data && data.filter((el) => !el.done);
+  const state = useSelector((state) => state.dailyReducer);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getData("http://localhost:3001/data"));
+  }, [dispatch]);
+
+  const notList = state.data && state.data.filter((el) => !el.done);
 
   return (
     <>
-      {isPending && <div>Loading...</div>}
-      {error && <div>{error}</div>}
-      {data && (
+      {state.loading && <div>Loading...</div>}
+      {state.error && <div>{state.error}</div>}
+      {state.data && (
         <article>
-          <Notice data={data} />
+          <Notice data={state.data} />
           <MatinTitle>할일 목록</MatinTitle>
           <ListRows>
             {notList.map((item, idx) => (

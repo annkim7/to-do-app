@@ -6,9 +6,6 @@ import { theme, mixins } from "./styles/theme";
 // routing
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import { useDispatch, useSelector } from "react-redux";
-import { TEST } from "./actions/index";
-
 const Nav = React.lazy(() => import("./components/Nav"));
 const List = React.lazy(() => import("./pages/List"));
 const Main = React.lazy(() => import("./pages/Main"));
@@ -16,11 +13,6 @@ const Edit = React.lazy(() => import("./pages/Edit"));
 const Add = React.lazy(() => import("./pages/Add"));
 
 export default function App() {
-  const state = useSelector((state) => state.dailyReducer);
-  const dispatch = useDispatch();
-
-  console.log(state);
-
   return (
     <ThemeProvider theme={{ ...theme, ...mixins }}>
       <Router>
