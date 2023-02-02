@@ -1,5 +1,3 @@
-import { apiAdd } from "../util/api";
-
 import Input from "../components/Input";
 import useInput from "../util/useInput";
 import Choice from "../components/Choice";
@@ -10,22 +8,28 @@ import useModal from "../util/useModal";
 import { ButtonBox, FormArea } from "../styles/Layout";
 import Button from "../ButtonComponents/Button";
 
+import { useDispatch } from "react-redux";
+import { addData } from "../actions/index";
+
 export default function Add() {
   const [title, titleBind] = useInput("");
   const [time, timeBind] = useInput("");
   const [category, cateBind] = useChoice("");
   const [modalValue, modalBind] = useModal(false);
 
+  const dispatch = useDispatch();
+
   const handleSumbit = (e) => {
     e.preventDefault();
 
     const item = { category, title, time, done: false };
-    apiAdd(`http://localhost:3001/data`, item);
+    dispatch(addData("http://localhost:3001/data", item));
     modalBind();
   };
 
   return (
     <FormArea onSubmit={handleSumbit}>
+      <button>버튼</button>
       <Input label={"제목"} values={titleBind} />
       <Input label={"시간"} values={timeBind} />
       <Choice label={"분류"} values={category} event={cateBind} />
