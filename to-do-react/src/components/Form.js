@@ -1,5 +1,6 @@
+import { useDispatch } from "react-redux";
+import { delData, editData } from "../actions/index";
 import { useParams } from "react-router-dom";
-import { apiDelete, apiEdit } from "../util/api";
 
 import Input from "../components/Input";
 import useInput from "../util/useInput";
@@ -16,6 +17,8 @@ import Button from "../ButtonComponents/Button";
 export default function Form({ datum }) {
   const { id } = useParams();
 
+  console.log(datum);
+
   const [title, titleBind] = useInput(datum.title || "");
   const [time, timeBind] = useInput(datum.time || "");
   const [category, cateBind] = useChoice(datum.category || null);
@@ -24,14 +27,16 @@ export default function Form({ datum }) {
   const [alert, alertBind] = useModal(false);
   const [del, delBind] = useModal(false);
 
+  const dispatch = useDispatch();
+
   const handleDelete = () => {
-    apiDelete(`http://localhost:3001/data/${id}`);
+    dispatch(delData(`http://localhost:3001/data/${id}`, id));
     alertBind();
   };
 
   const handleEdit = () => {
     const item = { category, title, time, done };
-    apiEdit(`http://localhost:3001/data/${id}`, item);
+    dispatch(editData(`http://localhost:3001/data/${id}`, item));
     modalBind();
   };
 
