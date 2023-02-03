@@ -43,6 +43,8 @@ export const getDatum = (url) => async (dispatch) => {
   try {
     const response = await fetch(url);
     const data = await response.json();
+    console.log("리덕스");
+    console.log(data);
     dispatch({ type: ITEM_SUCCESS, data });
   } catch (error) {
     dispatch({

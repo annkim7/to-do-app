@@ -16,18 +16,16 @@ import Button from "../ButtonComponents/Button";
 
 export default function Form({ datum }) {
   const { id } = useParams();
+  const dispatch = useDispatch();
 
-  console.log(datum);
+  const [title, titleBind] = useInput(datum[0].title);
+  const [time, timeBind] = useInput(datum[0].time);
+  const [category, cateBind] = useChoice(datum[0].category);
+  const [done, checkBind] = useCheck(datum[0].done);
 
-  const [title, titleBind] = useInput(datum.title || "");
-  const [time, timeBind] = useInput(datum.time || "");
-  const [category, cateBind] = useChoice(datum.category || null);
-  const [done, checkBind] = useCheck(datum.done || false);
   const [modal, modalBind] = useModal(false);
   const [alert, alertBind] = useModal(false);
   const [del, delBind] = useModal(false);
-
-  const dispatch = useDispatch();
 
   const handleDelete = () => {
     dispatch(delData(`http://localhost:3001/data/${id}`, id));
@@ -46,7 +44,6 @@ export default function Form({ datum }) {
       <Input label={"시간"} values={timeBind} />
       <Choice label={"분류"} values={category} event={cateBind} />
       <Check label={"완료"} values={checkBind} />
-
       <ButtonBox>
         <Button size="sm" text="수정" type="button" onClick={handleEdit} />
         <Button

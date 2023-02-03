@@ -11,13 +11,14 @@ const List = React.lazy(() => import("./pages/List"));
 const Main = React.lazy(() => import("./pages/Main"));
 const Edit = React.lazy(() => import("./pages/Edit"));
 const Add = React.lazy(() => import("./pages/Add"));
+const Loading = React.lazy(() => import("./components/Loading"));
 
 export default function App() {
   return (
     <ThemeProvider theme={{ ...theme, ...mixins }}>
       <Router>
         <GlobalStyle />
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Loading />}>
           <Nav />
           <main>
             <Routes>

@@ -29,7 +29,6 @@ export default function Add() {
 
   return (
     <FormArea onSubmit={handleSumbit}>
-      <button>버튼</button>
       <Input label={"제목"} values={titleBind} />
       <Input label={"시간"} values={timeBind} />
       <Choice label={"분류"} values={category} event={cateBind} />
