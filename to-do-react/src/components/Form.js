@@ -28,7 +28,7 @@ export default function Form({ datum }) {
   const [del, delBind] = useModal(false);
 
   const handleDelete = () => {
-    dispatch(delData(`http://localhost:3001/data/${id}`, id));
+    dispatch(delData(`http://localhost:3001/data/${id}`));
     alertBind();
   };
 

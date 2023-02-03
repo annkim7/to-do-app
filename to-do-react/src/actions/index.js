@@ -5,10 +5,6 @@ export const ADD_SUCCESS = "ADD_SUCCESS";
 export const DEL_SUCCESS = "DEL_SUCCESS";
 export const EDIT_SUCCESS = "EDIT_SUCCESS";
 
-export const ITEM_LOADING = "ITEM_LOADING";
-export const ITEM_SUCCESS = "ITEM_SUCCESS";
-export const ITEM_ERROR = "ITEM_ERROR";
-
 const BASE_URL = "http://localhost:3000/";
 // export const getData = (url) => (dispatch) => {
 //   dispatch({ type: GET_LOADING });
@@ -33,22 +29,6 @@ export const getData = (url) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: GET_ERROR,
-      error: error.message || "Unexpected Error!!!",
-    });
-  }
-};
-
-export const getDatum = (url) => async (dispatch) => {
-  dispatch({ type: ITEM_LOADING });
-  try {
-    const response = await fetch(url);
-    const data = await response.json();
-    console.log("리덕스");
-    console.log(data);
-    dispatch({ type: ITEM_SUCCESS, data });
-  } catch (error) {
-    dispatch({
-      type: ITEM_ERROR,
       error: error.message || "Unexpected Error!!!",
     });
   }
@@ -94,8 +74,8 @@ export const delData = (url) => async (dispatch) => {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
     });
-    const data = await response.json();
-    dispatch({ type: DEL_SUCCESS, data });
+    const id = await response.json();
+    dispatch({ type: DEL_SUCCESS, id });
     setTimeout(() => {
       window.location.href = BASE_URL;
     }, 1000);
