@@ -1,31 +1,30 @@
-// import useFetch from "../util/useFetch";
 import { useParams } from "react-router-dom";
 
 import { FormArea } from "../styles/Layout";
 import Form from "../components/Form";
+import Loading from "../components/Loading";
 
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getDatum } from "../actions/index";
+import { getData } from "../actions/index";
 
 export default function Edit() {
   const { id } = useParams();
-  // const [datum, isPending, error] = useFetch(
-  //   `http://localhost:3001/data/${id}`
-  // );
 
-  const state = useSelector((state) => state.itemReducer);
   const dispatch = useDispatch();
+  const state = useSelector((state) => state.dailyReducer);
 
   useEffect(() => {
-    dispatch(getDatum(`http://localhost:3001/data/${id}`));
-  }, [dispatch, id]);
+    dispatch(getData("http://localhost:3001/data"));
+  }, [dispatch]);
+
+  const datum = state.data.filter((el) => el.id === Number(id));
 
   return (
     <FormArea>
-      {state.loading && <div>Loading...</div>}
+      {state.loading && <Loading />}
       {state.error && <div>{state.error}</div>}
-      {state.data && <Form datum={state.data} />}
+      {state.data && <Form datum={datum} />}
     </FormArea>
   );
 }
