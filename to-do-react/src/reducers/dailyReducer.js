@@ -39,19 +39,25 @@ export default function dailyReducer(state = initialState, action) {
     case ADD_SUCCESS: {
       return {
         ...state,
-        data: action.data,
+        data: [...state.data, action.data],
       };
     }
     case EDIT_SUCCESS: {
       return {
         ...state,
-        data: action.data,
+        data: state.data.map((el) => {
+          if (el.id === action.data.id) {
+            return action.data;
+          } else {
+            return el;
+          }
+        }),
       };
     }
     case DEL_SUCCESS: {
       return {
         ...state,
-        data: action.data,
+        data: state.data.filter((el) => el.id !== action.id),
       };
     }
     default: {
