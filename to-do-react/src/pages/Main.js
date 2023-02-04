@@ -7,6 +7,7 @@ import { ListRows } from "../styles/Layout";
 
 import Notice from "../components/Notice";
 import Item from "../components/Item";
+import Loading from "../components/Loading";
 
 const MatinTitle = styled.h3`
   margin-bottom: 1.456rem;
@@ -24,7 +25,7 @@ export default function Main() {
 
   return (
     <>
-      {state.loading && <div>Loading...</div>}
+      {state.loading && <Loading />}
       {state.error && <div>{state.error}</div>}
       {state.data && (
         <article>
