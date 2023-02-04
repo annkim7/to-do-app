@@ -6,19 +6,6 @@ export const DEL_SUCCESS = "DEL_SUCCESS";
 export const EDIT_SUCCESS = "EDIT_SUCCESS";
 
 const BASE_URL = "http://localhost:3000/";
-// export const getData = (url) => (dispatch) => {
-//   dispatch({ type: GET_LOADING });
-//   fetch(url)
-//     .then((response) => response.json())
-//     .then(
-//       (data) => dispatch({ type: GET_SUCCESS, data }),
-//       (error) =>
-//         dispatch({
-//           type: GET_ERROR,
-//           error: error.message || "Unexpected Error!!!",
-//         })
-//     );
-// };
 
 export const getData = (url) => async (dispatch) => {
   dispatch({ type: GET_LOADING });
