@@ -28,13 +28,13 @@ export default function Form({ datum }) {
   const [del, delBind] = useModal(false);
 
   const handleDelete = () => {
-    dispatch(delData(`http://localhost:3001/data/${id}`));
+    dispatch(delData(`${process.env.REACT_APP_API_URL}/data/${id}`));
     alertBind();
   };
 
   const handleEdit = () => {
     const item = { category, title, time, done };
-    dispatch(editData(`http://localhost:3001/data/${id}`, item));
+    dispatch(editData(`${process.env.REACT_APP_API_URL}/data/${id}`, item));
     modalBind();
   };
 

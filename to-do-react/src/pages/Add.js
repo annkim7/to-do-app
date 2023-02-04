@@ -23,7 +23,7 @@ export default function Add() {
     e.preventDefault();
 
     const item = { category, title, time, done: false };
-    dispatch(addData("http://localhost:3001/data", item));
+    dispatch(addData(`${process.env.REACT_APP_API_URL}/data`, item));
     modalBind();
   };
 
