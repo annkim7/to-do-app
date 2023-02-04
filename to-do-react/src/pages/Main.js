@@ -17,7 +17,7 @@ export default function Main() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getData(`${process.env.REACT_APP_API_URL}/data`));
+    dispatch(getData("http://localhost:3001/data"));
   }, [dispatch]);
 
   const notList = state.data && state.data.filter((el) => !el.done);
