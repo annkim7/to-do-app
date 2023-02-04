@@ -5,7 +5,7 @@ export const ADD_SUCCESS = "ADD_SUCCESS";
 export const DEL_SUCCESS = "DEL_SUCCESS";
 export const EDIT_SUCCESS = "EDIT_SUCCESS";
 
-const BASE_URL = "http://localhost:3000/";
+const BASE_URL = `${process.env.REACT_APP_API_URL}`;
 
 export const getData = (url) => async (dispatch) => {
   dispatch({ type: GET_LOADING });
