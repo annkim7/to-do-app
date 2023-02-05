@@ -8,8 +8,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Install dependencies
+      - name: Checkout source code
         uses: actions/checkout@v1
+      - name: Install dependencies
         run: npm
         working-directory: ./to-do-react
       - name: Publish to Chromatic
