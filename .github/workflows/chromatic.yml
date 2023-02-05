@@ -11,10 +11,10 @@ jobs:
         uses: actions/checkout@v1
       - name: Install dependencies
         run: npm install
-        working-directory: ./to-do-react
+        working-directory: to-do-app
       - name: Publish to Chromatic
         uses: chromaui/action@v1
         with:
-          workingDir: ./to-do-react/storybook-static
+          workingDir: to-do-app
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
