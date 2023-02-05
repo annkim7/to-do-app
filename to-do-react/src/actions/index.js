@@ -12,7 +12,9 @@ export const getData = (url) => async (dispatch) => {
   try {
     const response = await fetch(url);
     const data = await response.json();
-    dispatch({ type: GET_SUCCESS, data });
+    setTimeout(() => {
+      dispatch({ type: GET_SUCCESS, data });
+    }, 1000);
   } catch (error) {
     dispatch({
       type: GET_ERROR,
