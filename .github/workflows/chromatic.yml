@@ -12,9 +12,6 @@ jobs:
       - name: Install dependencies
         run: npm install
         working-directory: ./to-do-react
-      - name: Build
-        run: npm run build-storybook
-        working-directory: ./to-do-react
       - name: Publish to Chromatic
         uses: chromaui/action@v1
         with:
