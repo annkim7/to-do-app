@@ -4,8 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
-/.storybook
-/src/stories
+# /.storybook
+# /src/stories
 .npmrc
 package-lock.json
 .env
