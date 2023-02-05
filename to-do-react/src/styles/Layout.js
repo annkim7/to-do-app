@@ -30,7 +30,11 @@ export const ItemLi = styled.li`
 export const ButtonBox = styled.div`
   display: grid;
   width: 100%;
-  margin-top: 1.65rem;
+  margin-top: auto;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 0 0.55rem;
+`;
+
+export const MainTitle = styled.h3`
+  margin-bottom: 1.2rem;
 `;

@@ -61,11 +61,14 @@ const GlobalStyle = createGlobalStyle`
     }
 
     main{
-        overflow:hidden;
         width:100%;
+        height:100%;
     }
 
     article, form{
+        ${({ theme }) => theme.flexBox("column", "inherit", "inherit")}
+
+        min-height: calc(100% - 4.5rem);
         padding:${({ theme }) => theme.pd25};
         padding-top:0;
     }
