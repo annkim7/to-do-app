@@ -4,7 +4,7 @@ module.exports = function (app) {
   app.use(
     "/data",
     createProxyMiddleware({
-      target: "http://localhost:3001",
+      target: "http://www.naver.com",
       changeOrigin: true,
     })
   );
