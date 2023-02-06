@@ -4,7 +4,7 @@ module.exports = function (app) {
   app.use(
     "/data",
     createProxyMiddleware({
-      target: "http://www.naver.com",
+      target: `${process.env.REACT_APP_API_URL}`,
       changeOrigin: true,
     })
   );
