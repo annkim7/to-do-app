@@ -14,7 +14,7 @@ export default function Edit() {
   const state = useSelector((state) => state.dailyReducer);
 
   useEffect(() => {
-    dispatch(getData(`${process.env.REACT_APP_API_URL}/data`));
+    dispatch(getData("/data"));
   }, [dispatch]);
 
   const datum = state.data.filter((el) => el.id === Number(id));

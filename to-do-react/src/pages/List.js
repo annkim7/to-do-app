@@ -12,7 +12,7 @@ export default function List() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getData(`${process.env.REACT_APP_API_URL}/data`));
+    dispatch(getData("/data"));
   }, [dispatch]);
 
   const array =
