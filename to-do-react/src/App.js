@@ -16,7 +16,7 @@ const Loading = React.lazy(() => import("./components/Loading"));
 export default function App() {
   return (
     <ThemeProvider theme={{ ...theme, ...mixins }}>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <GlobalStyle />
         <Suspense fallback={<Loading />}>
           <Nav />
