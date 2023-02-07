@@ -9,7 +9,6 @@ const BASE_URL = "/";
 
 export const getData = (url) => async (dispatch) => {
   dispatch({ type: GET_LOADING });
-  console.log(url);
   try {
     const response = await fetch(url);
     const data = await response.json();
