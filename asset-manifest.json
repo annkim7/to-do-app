@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "https://annkim7.github.io/to-do-app/static/js/main.a64e3e49.js",
+    "main.js": "https://annkim7.github.io/to-do-app/static/js/main.8ab572a9.js",
     "static/js/524.91878c99.chunk.js": "https://annkim7.github.io/to-do-app/static/js/524.91878c99.chunk.js",
-    "static/js/490.00c67668.chunk.js": "https://annkim7.github.io/to-do-app/static/js/490.00c67668.chunk.js",
-    "static/js/94.940e14e4.chunk.js": "https://annkim7.github.io/to-do-app/static/js/94.940e14e4.chunk.js",
+    "static/js/490.b7efdf54.chunk.js": "https://annkim7.github.io/to-do-app/static/js/490.b7efdf54.chunk.js",
+    "static/js/94.92ac071a.chunk.js": "https://annkim7.github.io/to-do-app/static/js/94.92ac071a.chunk.js",
     "static/js/386.76b5c189.chunk.js": "https://annkim7.github.io/to-do-app/static/js/386.76b5c189.chunk.js",
     "static/js/199.16ca6a87.chunk.js": "https://annkim7.github.io/to-do-app/static/js/199.16ca6a87.chunk.js",
     "static/js/388.7ab94902.chunk.js": "https://annkim7.github.io/to-do-app/static/js/388.7ab94902.chunk.js",
     "static/js/787.336a5b3e.chunk.js": "https://annkim7.github.io/to-do-app/static/js/787.336a5b3e.chunk.js",
     "static/js/711.f1f7e3ec.chunk.js": "https://annkim7.github.io/to-do-app/static/js/711.f1f7e3ec.chunk.js",
     "index.html": "https://annkim7.github.io/to-do-app/index.html",
-    "main.a64e3e49.js.map": "https://annkim7.github.io/to-do-app/static/js/main.a64e3e49.js.map",
+    "main.8ab572a9.js.map": "https://annkim7.github.io/to-do-app/static/js/main.8ab572a9.js.map",
     "524.91878c99.chunk.js.map": "https://annkim7.github.io/to-do-app/static/js/524.91878c99.chunk.js.map",
-    "490.00c67668.chunk.js.map": "https://annkim7.github.io/to-do-app/static/js/490.00c67668.chunk.js.map",
-    "94.940e14e4.chunk.js.map": "https://annkim7.github.io/to-do-app/static/js/94.940e14e4.chunk.js.map",
+    "490.b7efdf54.chunk.js.map": "https://annkim7.github.io/to-do-app/static/js/490.b7efdf54.chunk.js.map",
+    "94.92ac071a.chunk.js.map": "https://annkim7.github.io/to-do-app/static/js/94.92ac071a.chunk.js.map",
     "386.76b5c189.chunk.js.map": "https://annkim7.github.io/to-do-app/static/js/386.76b5c189.chunk.js.map",
     "199.16ca6a87.chunk.js.map": "https://annkim7.github.io/to-do-app/static/js/199.16ca6a87.chunk.js.map",
     "388.7ab94902.chunk.js.map": "https://annkim7.github.io/to-do-app/static/js/388.7ab94902.chunk.js.map",
@@ -21,6 +21,6 @@
     "711.f1f7e3ec.chunk.js.map": "https://annkim7.github.io/to-do-app/static/js/711.f1f7e3ec.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.a64e3e49.js"
+    "static/js/main.8ab572a9.js"
   ]
 }
