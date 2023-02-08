@@ -16,16 +16,16 @@ const Loading = React.lazy(() => import("./components/Loading"));
 export default function App() {
   return (
     <ThemeProvider theme={{ ...theme, ...mixins }}>
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router>
         <GlobalStyle />
         <Suspense fallback={<Loading />}>
           <Nav />
           <main>
             <Routes>
-              <Route path="/" element={<Main />} />
-              <Route path="/list" element={<List />} />
-              <Route path="/add" element={<Add />} />
-              <Route path="/edit/:id" element={<Edit />} />
+              <Route path="/to-do-app" element={<Main />} />
+              <Route path="/to-do-app/list" element={<List />} />
+              <Route path="/to-do-app/add" element={<Add />} />
+              <Route path="/to-do-app/edit/:id" element={<Edit />} />
             </Routes>
           </main>
         </Suspense>

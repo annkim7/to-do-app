@@ -5,7 +5,7 @@ export const ADD_SUCCESS = "ADD_SUCCESS";
 export const DEL_SUCCESS = "DEL_SUCCESS";
 export const EDIT_SUCCESS = "EDIT_SUCCESS";
 
-const BASE_URL = "/";
+const BASE_URL = process.env.PUBLIC_URL;
 
 export const getData = (url) => async (dispatch) => {
   dispatch({ type: GET_LOADING });
@@ -44,7 +44,9 @@ export const editData = (url, item) => async (dispatch) => {
   try {
     const response = await fetch(url, {
       method: "PATCH",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(item),
     });
     const data = await response.json();
@@ -61,7 +63,9 @@ export const delData = (url) => async (dispatch) => {
   try {
     const response = await fetch(url, {
       method: "DELETE",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
     const id = await response.json();
     dispatch({ type: DEL_SUCCESS, id });
