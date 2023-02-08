@@ -50,7 +50,7 @@ export default function Notice({ data }) {
         {`오늘 ${doneArr.length}개의 할 일을 완료하였습니다`}
       </h2>
       <LightBlueButton>
-        <Link to="/to-do-app/list">확인하러 가기</Link>
+        <Link to="/list">확인하러 가기</Link>
       </LightBlueButton>
     </Alarm>
   );

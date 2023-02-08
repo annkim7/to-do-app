@@ -42,7 +42,7 @@ export default function Nav() {
   return (
     <Header>
       <Logo>
-        <Link to="/to-do-app">
+        <Link to="/">
           <Icon icon="material-symbols:home" />
           <strong>To Do</strong>
         </Link>
@@ -50,7 +50,7 @@ export default function Nav() {
       <nav>
         <ul className="nav-list">
           <NavLi>
-            <Link to="/to-do-app/add">
+            <Link to="/add">
               <Icon icon="jam:write" />
             </Link>
           </NavLi>
