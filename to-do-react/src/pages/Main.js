@@ -25,7 +25,7 @@ export default function Main() {
       {state.data && (
         <article>
           <Notice data={state.data} />
-          <MainTitle>할일 목록</MainTitle>
+          <MainTitle>할일 목록!</MainTitle>
           <ListRows>
             {notList.map((item, idx) => (
               <Item key={idx} item={item} />
