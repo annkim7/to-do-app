@@ -22,7 +22,7 @@ export default function Item({ item }) {
 
   return (
     <ItemLi key={item.id}>
-      <Link to={`/to-do-app/edit/${item.id}`}>
+      <Link to={`/edit/${item.id}`}>
         <Category symbol={item.category} active />
         <ListTitle>{item.title}</ListTitle>
         <Time>{item.time}</Time>
