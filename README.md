@@ -23,6 +23,9 @@ semantic를 사용하여 웹 접근성 높임<br>
 
 **재사용 컴포넌트 분리**<br>
 카테고리 아이콘, 체크 아이콘 등을 따로 분리하여 재사용성을 높임<br>
+
+**grid 사용*<br>
+리스트 레이아웃 정렬에 사용<br>
 <br>
 
 📌 **Custom Component**<br>
@@ -56,6 +59,10 @@ fetch 사용을 위해 ReduxThunk 적용<br>
 📌 **json-server 사용**<br>
 
 간단하게 서버 구동만 가능한 정도로 작성
+
+📌 **proxy 적용**<br>
+
+로컬에서만 작동 확인
 
 ### AWS
 
