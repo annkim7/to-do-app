@@ -4,15 +4,16 @@
 ## 기획
 
 ### Figma
-📌 **디자인**<br>
+📌 **디자인**
 [Figma](https://www.figma.com/file/dcdBMQfzUsAifvZ4hCfTro/S3U8-%EB%82%98%EB%A7%8C%EC%9D%98-%EC%96%B4%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EB%A7%8C%EB%93%A4%EA%B8%B0?node-id=1%3A2)
 <br><br>
-📌 **Userflow**<br>
+📌 **Userflow**
 [Figma](https://www.figma.com/file/dcdBMQfzUsAifvZ4hCfTro/S3U8-%EB%82%98%EB%A7%8C%EC%9D%98-%EC%96%B4%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EB%A7%8C%EB%93%A4%EA%B8%B0?node-id=115%3A135)
 
 ## 기능
 
 ### React
+<br>
 
 📌 **구조**<br>
 🧩 **semantic**<br>
@@ -39,12 +40,37 @@ semantic를 사용하여 웹 접근성 높임<br>
 🧩 **reducer**
 -Provider로 store 전역 적용<br>
 -fetch 사용을 위해 ReduxThunk 적용<br>
+<br>
+
+📌 **fetch 사용**<br>
+get, post, delete, patch를 reduser로 만들어 사용
+<br>
 
 📌 **Custom Hook**<br>
 🧩 **재사용 컴포넌트, 기능을 묶어서 분리**<br>
 -input, checkbox, modal 등을 묶어서 분리해 재사용성 높임
 
-## 구현
+### Api
+
+📌 **json-server 사용**<br>
+간단하게 서버 구동만 가능한 정도로 작성
+
+### AWS
+📌 **EC2에 서버 올려서 사용**<br>
+pm2 적용하여 서버 구동, 단순한 데이터 교환만 가능한 정도
+<br>
+
+📌 **Github page 업로드**<br>
+Api gateway를 경유, cors에러가 나지 않도록 통합 응답 헤더 추가함<br>
+
+<br>
+
+📌 **S3에 Github action 연동**<br>
+pull request를 하면 S3에 자동으로 업로드 되도록 작성<br>
+cloudfront 연동으로 fetch는 성공하지 못함
+
+
+## 구현 화면
 
 ### Create
 ![S4U11-Create](https://user-images.githubusercontent.com/67787776/217712742-fc14b7f1-3729-45c8-9788-271253832a68.gif)
