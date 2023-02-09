@@ -13,12 +13,14 @@
 ## 기능
 
 ### React
-📌 **Custom Component**<br>
+📌 **Custom Component**<br><br>
+
 🧩 Styled Components<br>
-- styled-reset적용으로 호환성 높임<br>
-- ThemeProvider로 전역 스타일 적용<br>
+-styled-reset적용으로 호환성 높임<br>
+-ThemeProvider로 전역 스타일 적용<br><br>
+
 🧩 Storybook<br>
-- chromatic 으로 배포<br>
+-chromatic 으로 배포<br>
 
 ## 구현
 
