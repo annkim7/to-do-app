@@ -13,14 +13,36 @@
 ## 기능
 
 ### React
-📌 **Custom Component**<br><br>
 
-🧩 Styled Components<br>
+📌 **구조**<br>
+🧩 **semantic**<br>
+semantic를 사용하여 웹 접근성 높임<br>
+
+🧩 **재사용 컴포넌트 분리**<br>
+카테고리 아이콘, 체크 아이콘 등을 따로 분리하여 재사용성을 높임<br>
+<br>
+
+📌 **Custom Component**<br>
+
+🧩 **Styled Components**<br>
 -styled-reset적용으로 호환성 높임<br>
--ThemeProvider로 전역 스타일 적용<br><br>
+-GlobalStyle로 전역 스타일 적용
+-ThemeProvider로 전역 스타일 변수, 함수 등록
+<br>
 
-🧩 Storybook<br>
+🧩 **Storybook**<br>
 -chromatic 으로 배포<br>
+
+<br>
+
+📌 **Redux**<br>
+🧩 **reducer**
+-Provider로 store 전역 적용<br>
+-fetch 사용을 위해 ReduxThunk 적용<br>
+
+📌 **Custom Hook**<br>
+🧩 **재사용 컴포넌트, 기능을 묶어서 분리**<br>
+-input, checkbox, modal 등을 묶어서 분리해 재사용성 높임
 
 ## 구현
 
