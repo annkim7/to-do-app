@@ -5,11 +5,11 @@
 
 ### Figma
 📌 **디자인**
-[Figma](https://www.figma.com/file/dcdBMQfzUsAifvZ4hCfTro/S3U8-%EB%82%98%EB%A7%8C%EC%9D%98-%EC%96%B4%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EB%A7%8C%EB%93%A4%EA%B8%B0?node-id=1%3A2)
+[Figma 링크](https://www.figma.com/file/dcdBMQfzUsAifvZ4hCfTro/S3U8-%EB%82%98%EB%A7%8C%EC%9D%98-%EC%96%B4%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EB%A7%8C%EB%93%A4%EA%B8%B0?node-id=1%3A2)
 <br><br>
 
 📌 **Userflow**
-[Figma](https://www.figma.com/file/dcdBMQfzUsAifvZ4hCfTro/S3U8-%EB%82%98%EB%A7%8C%EC%9D%98-%EC%96%B4%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EB%A7%8C%EB%93%A4%EA%B8%B0?node-id=115%3A135)
+[Figma 링크](https://www.figma.com/file/dcdBMQfzUsAifvZ4hCfTro/S3U8-%EB%82%98%EB%A7%8C%EC%9D%98-%EC%96%B4%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EB%A7%8C%EB%93%A4%EA%B8%B0?node-id=115%3A135)
 
 ## 기능
 
@@ -36,7 +36,7 @@ ThemeProvider로 전역 스타일 변수, 함수 등록
 **Storybook**<br>
 chromatic 으로 배포<br>
 github action 연동으로 pull request 하면 chromatic 자동 배포
-
+[storybook 배포 링크](https://www.chromatic.com/setup?appId=63df6700669c73c96606c388)
 <br>
 
 📌 **Redux**<br>
