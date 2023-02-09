@@ -36,7 +36,7 @@ ThemeProvider로 전역 스타일 변수, 함수 등록
 **Storybook**<br>
 chromatic 으로 배포<br>
 github action 연동으로 pull request 하면 chromatic 자동 배포<br>
-[storybook 배포 링크]([https://www.chromatic.com/setup?appId=63df6700669c73c96606c388](https://63df6700669c73c96606c388-vxhkpbssur.chromatic.com/))
+[storybook 배포 링크](https://63df6700669c73c96606c388-vxhkpbssur.chromatic.com/?path=/story/to-do-app-button--big-button)
 <br>
 
 📌 **Redux**<br>
