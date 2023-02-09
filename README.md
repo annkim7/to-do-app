@@ -10,3 +10,7 @@
 
 ### Update
 ![S4U11-Edit](https://user-images.githubusercontent.com/67787776/217713820-5aaf1bfe-25ef-494e-af28-802914b39e35.gif)
+
+### Delete
+![S4U11-Delete](https://user-images.githubusercontent.com/67787776/217714452-0e73d91f-1167-4a90-a6f9-af44793d7db2.gif)
+
