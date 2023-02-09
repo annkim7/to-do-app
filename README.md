@@ -18,22 +18,22 @@
 
 📌 **구조**<br>
 
-🧩 **semantic**<br>
+**semantic**<br>
 semantic를 사용하여 웹 접근성 높임<br>
 
-🧩 **재사용 컴포넌트 분리**<br>
+**재사용 컴포넌트 분리**<br>
 카테고리 아이콘, 체크 아이콘 등을 따로 분리하여 재사용성을 높임<br>
 <br>
 
 📌 **Custom Component**<br>
 
-🧩 **Styled Components**<br>
+**Styled Components**<br>
 styled-reset적용으로 호환성 높임<br>
 GlobalStyle로 전역 스타일 적용
 ThemeProvider로 전역 스타일 변수, 함수 등록
 <br>
 
-🧩 **Storybook**<br>
+**Storybook**<br>
 chromatic 으로 배포<br>
 github action 연동으로 pull request 하면 chromatic 자동 배포
 
@@ -41,14 +41,14 @@ github action 연동으로 pull request 하면 chromatic 자동 배포
 
 📌 **Redux**<br>
 
-🧩 **reducer 사용**<br>
+**reducer 사용**<br>
 Provider로 store 전역 적용<br>
 fetch 사용을 위해 ReduxThunk 적용<br>
 <br>
 
 📌 **Custom Hook**<br>
 
-🧩 **재사용 컴포넌트, 기능을 묶어서 분리**<br>
+**재사용 컴포넌트, 기능을 묶어서 분리**<br>
 -input, checkbox, modal 등을 묶어서 분리해 재사용성 높임
 
 ### Api
@@ -61,21 +61,21 @@ fetch 사용을 위해 ReduxThunk 적용<br>
 
 📌 **EC2**<br>
 
-🧩 **Pm2**<br>
+**Pm2**<br>
 pm2 적용하여 서버 구동, 단순한 데이터 교환만 가능한 정도<br>
 
 <br>
 
 📌 **Github page**<br>
 
-🧩 **Api gateway**<br>
+**Api gateway**<br>
 Api gateway를 경유, cors에러가 나지 않도록 통합 응답 헤더 추가함<br>
 
 <br>
 
 📌 **S3**<br>
 
-🧩 **Github action 연동**
+**Github action 연동**<br>
 pull request를 하면 S3에 자동으로 업로드 되도록 작성<br>
 cloudfront 연동으로 fetch는 성공하지 못함
 
