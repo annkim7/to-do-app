@@ -13,7 +13,7 @@ export default function Main() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getData(`/data`));
+    dispatch(getData(`${process.env.REACT_APP_API_URL}/data`));
   }, [dispatch]);
 
   const notList = state.data && state.data.filter((el) => !el.done);
@@ -25,7 +25,7 @@ export default function Main() {
       {state.data && (
         <article>
           <Notice data={state.data} />
-          <MainTitle>할일 목록!</MainTitle>
+          <MainTitle>할일 목록</MainTitle>
           <ListRows>
             {notList.map((item, idx) => (
               <Item key={idx} item={item} />
