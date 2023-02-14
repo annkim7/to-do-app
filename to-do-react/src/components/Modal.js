@@ -28,7 +28,13 @@ const ModalCon = styled.div`
   white-space: pre-wrap;
 `;
 
-export default function Modal({ label, alert, eventModal, handleDelete }) {
+export default function Modal({
+  label,
+  alert,
+  eventAlert,
+  eventModal,
+  handleDelete,
+}) {
   return (
     <ModalBox>
       <ModalBg onClick={eventModal}>
@@ -49,7 +55,15 @@ export default function Modal({ label, alert, eventModal, handleDelete }) {
                 type="button"
                 onClick={handleDelete}
               />
-              <Button size="sm" modal="true" text="취소" onClick={eventModal} />
+              <Button
+                size="sm"
+                modal="true"
+                text="취소"
+                onClick={() => {
+                  eventModal();
+                  eventAlert();
+                }}
+              />
             </ButtonBox>
           ) : null}
         </ModalCon>
