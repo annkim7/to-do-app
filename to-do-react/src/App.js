@@ -22,10 +22,10 @@ export default function App() {
           <Nav />
           <main>
             <Routes>
-              <Route path="/" element={<Main />} />
-              <Route path="/list" element={<List />} />
-              <Route path="/add" element={<Add />} />
-              <Route path="/edit/:id" element={<Edit />} />
+              <Route path="/to-do-app" element={<Main />} />
+              <Route path="/to-do-app/list" element={<List />} />
+              <Route path="/to-do-app/add" element={<Add />} />
+              <Route path="/to-do-app/edit/:id" element={<Edit />} />
             </Routes>
           </main>
         </Suspense>

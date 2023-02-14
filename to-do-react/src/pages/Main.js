@@ -7,6 +7,7 @@ import { ListRows, MainTitle } from "../styles/Layout";
 import Notice from "../components/Notice";
 import Item from "../components/Item";
 import Loading from "../components/Loading";
+import Ready from "../components/Ready";
 
 export default function Main() {
   const state = useSelector((state) => state.dailyReducer);
@@ -21,8 +22,8 @@ export default function Main() {
   return (
     <>
       {state.loading && <Loading />}
-      {state.error && <div>{state.error}</div>}
-      {state.data && (
+      {state.error && <Ready />}
+      {state.data ? (
         <article>
           <Notice data={state.data} />
           <MainTitle>할일 목록</MainTitle>
@@ -32,6 +33,8 @@ export default function Main() {
             ))}
           </ListRows>
         </article>
+      ) : (
+        <Ready />
       )}
     </>
   );

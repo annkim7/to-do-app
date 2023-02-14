@@ -65,6 +65,7 @@ export default function Form({ datum }) {
         <Modal
           label={del ? "삭제" : "수정"}
           alert={alert}
+          eventAlert={alertBind}
           eventModal={modalBind}
           handleDelete={handleDelete}
         ></Modal>

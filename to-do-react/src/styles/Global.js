@@ -50,7 +50,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     #root{
-        overflow-y:scroll;
+        overflow:hidden;
         position:relative;
         width: 18.3rem;
         height:33rem;
@@ -66,9 +66,9 @@ const GlobalStyle = createGlobalStyle`
     }
 
     article, form{
+        overflow:scroll;
         ${({ theme }) => theme.flexBox("column", "inherit", "inherit")}
-
-        min-height: calc(100% - 4.5rem);
+        height: 29rem;
         padding:${({ theme }) => theme.pd25};
         padding-top:0;
     }
